@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.fjnu.foodvomitslot.dao.TbPowerMapper" >
+  <resultMap id="BaseResultMap" type="edu.fjnu.foodvomitslot.model.TbPower" >
+    <id column="p_id" property="pId" jdbcType="INTEGER" />
+    <result column="p_description" property="pDescription" jdbcType="VARCHAR" />
+    <result column="p_powercode" property="pPowercode" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    p_id, p_description, p_powercode
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_power
+    where p_id = #{pId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_power
+    where p_id = #{pId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.fjnu.foodvomitslot.model.TbPower" >
+    insert into tb_power (p_id, p_description, p_powercode
+      )
+    values (#{pId,jdbcType=INTEGER}, #{pDescription,jdbcType=VARCHAR}, #{pPowercode,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.fjnu.foodvomitslot.model.TbPower" >
+    insert into tb_power
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pId != null" >
+        p_id,
+      </if>
+      <if test="pDescription != null" >
+        p_description,
+      </if>
+      <if test="pPowercode != null" >
+        p_powercode,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pId != null" >
+        #{pId,jdbcType=INTEGER},
+      </if>
+      <if test="pDescription != null" >
+        #{pDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="pPowercode != null" >
+        #{pPowercode,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.fjnu.foodvomitslot.model.TbPower" >
+    update tb_power
+    <set >
+      <if test="pDescription != null" >
+        p_description = #{pDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="pPowercode != null" >
+        p_powercode = #{pPowercode,jdbcType=INTEGER},
+      </if>
+    </set>
+    where p_id = #{pId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.fjnu.foodvomitslot.model.TbPower" >
+    update tb_power
+    set p_description = #{pDescription,jdbcType=VARCHAR},
+      p_powercode = #{pPowercode,jdbcType=INTEGER}
+    where p_id = #{pId,jdbcType=INTEGER}
+  </update>
+</mapper>

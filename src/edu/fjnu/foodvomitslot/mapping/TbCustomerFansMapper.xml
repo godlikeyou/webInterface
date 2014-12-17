@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.fjnu.foodvomitslot.dao.TbCustomerFansMapper" >
+  <resultMap id="BaseResultMap" type="edu.fjnu.foodvomitslot.model.TbCustomerFans" >
+    <id column="cf_id" property="cfId" jdbcType="INTEGER" />
+    <result column="c_id" property="cId" jdbcType="INTEGER" />
+    <result column="c_fansid" property="cFansid" jdbcType="INTEGER" />
+    <result column="cf_time" property="cfTime" jdbcType="TIMESTAMP" />
+    <result column="cf_status" property="cfStatus" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cf_id, c_id, c_fansid, cf_time, cf_status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_customer_fans
+    where cf_id = #{cfId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_customer_fans
+    where cf_id = #{cfId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.fjnu.foodvomitslot.model.TbCustomerFans" >
+    insert into tb_customer_fans (cf_id, c_id, c_fansid, 
+      cf_time, cf_status)
+    values (#{cfId,jdbcType=INTEGER}, #{cId,jdbcType=INTEGER}, #{cFansid,jdbcType=INTEGER}, 
+      #{cfTime,jdbcType=TIMESTAMP}, #{cfStatus,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.fjnu.foodvomitslot.model.TbCustomerFans" >
+    insert into tb_customer_fans
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cfId != null" >
+        cf_id,
+      </if>
+      <if test="cId != null" >
+        c_id,
+      </if>
+      <if test="cFansid != null" >
+        c_fansid,
+      </if>
+      <if test="cfTime != null" >
+        cf_time,
+      </if>
+      <if test="cfStatus != null" >
+        cf_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cfId != null" >
+        #{cfId,jdbcType=INTEGER},
+      </if>
+      <if test="cId != null" >
+        #{cId,jdbcType=INTEGER},
+      </if>
+      <if test="cFansid != null" >
+        #{cFansid,jdbcType=INTEGER},
+      </if>
+      <if test="cfTime != null" >
+        #{cfTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cfStatus != null" >
+        #{cfStatus,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.fjnu.foodvomitslot.model.TbCustomerFans" >
+    update tb_customer_fans
+    <set >
+      <if test="cId != null" >
+        c_id = #{cId,jdbcType=INTEGER},
+      </if>
+      <if test="cFansid != null" >
+        c_fansid = #{cFansid,jdbcType=INTEGER},
+      </if>
+      <if test="cfTime != null" >
+        cf_time = #{cfTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cfStatus != null" >
+        cf_status = #{cfStatus,jdbcType=CHAR},
+      </if>
+    </set>
+    where cf_id = #{cfId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.fjnu.foodvomitslot.model.TbCustomerFans" >
+    update tb_customer_fans
+    set c_id = #{cId,jdbcType=INTEGER},
+      c_fansid = #{cFansid,jdbcType=INTEGER},
+      cf_time = #{cfTime,jdbcType=TIMESTAMP},
+      cf_status = #{cfStatus,jdbcType=CHAR}
+    where cf_id = #{cfId,jdbcType=INTEGER}
+  </update>
+</mapper>

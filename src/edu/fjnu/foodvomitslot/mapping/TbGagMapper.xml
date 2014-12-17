@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.fjnu.foodvomitslot.dao.TbGagMapper" >
+  <resultMap id="BaseResultMap" type="edu.fjnu.foodvomitslot.model.TbGag" >
+    <id column="g_id" property="gId" jdbcType="INTEGER" />
+    <result column="s_id" property="sId" jdbcType="INTEGER" />
+    <result column="g_content" property="gContent" jdbcType="VARCHAR" />
+    <result column="g_pic" property="gPic" jdbcType="VARCHAR" />
+    <result column="g_time" property="gTime" jdbcType="TIMESTAMP" />
+    <result column="c_id" property="cId" jdbcType="INTEGER" />
+    <result column="gt_id" property="gtId" jdbcType="INTEGER" />
+    <result column="gt_reccount" property="gtReccount" jdbcType="INTEGER" />
+    <result column="gt_goodcount" property="gtGoodcount" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    g_id, s_id, g_content, g_pic, g_time, c_id, gt_id, gt_reccount, gt_goodcount
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_gag
+    where g_id = #{gId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_gag
+    where g_id = #{gId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.fjnu.foodvomitslot.model.TbGag" >
+    insert into tb_gag (g_id, s_id, g_content, 
+      g_pic, g_time, c_id, 
+      gt_id, gt_reccount, gt_goodcount
+      )
+    values (#{gId,jdbcType=INTEGER}, #{sId,jdbcType=INTEGER}, #{gContent,jdbcType=VARCHAR}, 
+      #{gPic,jdbcType=VARCHAR}, #{gTime,jdbcType=TIMESTAMP}, #{cId,jdbcType=INTEGER}, 
+      #{gtId,jdbcType=INTEGER}, #{gtReccount,jdbcType=INTEGER}, #{gtGoodcount,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="edu.fjnu.foodvomitslot.model.TbGag" >
+    insert into tb_gag
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gId != null" >
+        g_id,
+      </if>
+      <if test="sId != null" >
+        s_id,
+      </if>
+      <if test="gContent != null" >
+        g_content,
+      </if>
+      <if test="gPic != null" >
+        g_pic,
+      </if>
+      <if test="gTime != null" >
+        g_time,
+      </if>
+      <if test="cId != null" >
+        c_id,
+      </if>
+      <if test="gtId != null" >
+        gt_id,
+      </if>
+      <if test="gtReccount != null" >
+        gt_reccount,
+      </if>
+      <if test="gtGoodcount != null" >
+        gt_goodcount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gId != null" >
+        #{gId,jdbcType=INTEGER},
+      </if>
+      <if test="sId != null" >
+        #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="gContent != null" >
+        #{gContent,jdbcType=VARCHAR},
+      </if>
+      <if test="gPic != null" >
+        #{gPic,jdbcType=VARCHAR},
+      </if>
+      <if test="gTime != null" >
+        #{gTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cId != null" >
+        #{cId,jdbcType=INTEGER},
+      </if>
+      <if test="gtId != null" >
+        #{gtId,jdbcType=INTEGER},
+      </if>
+      <if test="gtReccount != null" >
+        #{gtReccount,jdbcType=INTEGER},
+      </if>
+      <if test="gtGoodcount != null" >
+        #{gtGoodcount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.fjnu.foodvomitslot.model.TbGag" >
+    update tb_gag
+    <set >
+      <if test="sId != null" >
+        s_id = #{sId,jdbcType=INTEGER},
+      </if>
+      <if test="gContent != null" >
+        g_content = #{gContent,jdbcType=VARCHAR},
+      </if>
+      <if test="gPic != null" >
+        g_pic = #{gPic,jdbcType=VARCHAR},
+      </if>
+      <if test="gTime != null" >
+        g_time = #{gTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cId != null" >
+        c_id = #{cId,jdbcType=INTEGER},
+      </if>
+      <if test="gtId != null" >
+        gt_id = #{gtId,jdbcType=INTEGER},
+      </if>
+      <if test="gtReccount != null" >
+        gt_reccount = #{gtReccount,jdbcType=INTEGER},
+      </if>
+      <if test="gtGoodcount != null" >
+        gt_goodcount = #{gtGoodcount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where g_id = #{gId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.fjnu.foodvomitslot.model.TbGag" >
+    update tb_gag
+    set s_id = #{sId,jdbcType=INTEGER},
+      g_content = #{gContent,jdbcType=VARCHAR},
+      g_pic = #{gPic,jdbcType=VARCHAR},
+      g_time = #{gTime,jdbcType=TIMESTAMP},
+      c_id = #{cId,jdbcType=INTEGER},
+      gt_id = #{gtId,jdbcType=INTEGER},
+      gt_reccount = #{gtReccount,jdbcType=INTEGER},
+      gt_goodcount = #{gtGoodcount,jdbcType=INTEGER}
+    where g_id = #{gId,jdbcType=INTEGER}
+  </update>
+</mapper>

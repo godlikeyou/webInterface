@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.fjnu.foodvomitslot.dao.TbCustomertypeMapper" >
+  <resultMap id="BaseResultMap" type="edu.fjnu.foodvomitslot.model.TbCustomertype" >
+    <id column="ct_typeid" property="ctTypeid" jdbcType="INTEGER" />
+    <result column="ct_typedescription" property="ctTypedescription" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ct_typeid, ct_typedescription
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_customertype
+    where ct_typeid = #{ctTypeid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_customertype
+    where ct_typeid = #{ctTypeid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.fjnu.foodvomitslot.model.TbCustomertype" >
+    insert into tb_customertype (ct_typeid, ct_typedescription)
+    values (#{ctTypeid,jdbcType=INTEGER}, #{ctTypedescription,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.fjnu.foodvomitslot.model.TbCustomertype" >
+    insert into tb_customertype
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ctTypeid != null" >
+        ct_typeid,
+      </if>
+      <if test="ctTypedescription != null" >
+        ct_typedescription,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ctTypeid != null" >
+        #{ctTypeid,jdbcType=INTEGER},
+      </if>
+      <if test="ctTypedescription != null" >
+        #{ctTypedescription,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.fjnu.foodvomitslot.model.TbCustomertype" >
+    update tb_customertype
+    <set >
+      <if test="ctTypedescription != null" >
+        ct_typedescription = #{ctTypedescription,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ct_typeid = #{ctTypeid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.fjnu.foodvomitslot.model.TbCustomertype" >
+    update tb_customertype
+    set ct_typedescription = #{ctTypedescription,jdbcType=VARCHAR}
+    where ct_typeid = #{ctTypeid,jdbcType=INTEGER}
+  </update>
+</mapper>

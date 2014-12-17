@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.fjnu.foodvomitslot.dao.TbCustomerFocusMapper" >
+  <resultMap id="BaseResultMap" type="edu.fjnu.foodvomitslot.model.TbCustomerFocus" >
+    <id column="cfs_id" property="cfsId" jdbcType="INTEGER" />
+    <result column="c_id" property="cId" jdbcType="INTEGER" />
+    <result column="c_focusid" property="cFocusid" jdbcType="INTEGER" />
+    <result column="cfs_time" property="cfsTime" jdbcType="TIMESTAMP" />
+    <result column="cfs_ifshield" property="cfsIfshield" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    cfs_id, c_id, c_focusid, cfs_time, cfs_ifshield
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_customer_focus
+    where cfs_id = #{cfsId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_customer_focus
+    where cfs_id = #{cfsId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.fjnu.foodvomitslot.model.TbCustomerFocus" >
+    insert into tb_customer_focus (cfs_id, c_id, c_focusid, 
+      cfs_time, cfs_ifshield)
+    values (#{cfsId,jdbcType=INTEGER}, #{cId,jdbcType=INTEGER}, #{cFocusid,jdbcType=INTEGER}, 
+      #{cfsTime,jdbcType=TIMESTAMP}, #{cfsIfshield,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.fjnu.foodvomitslot.model.TbCustomerFocus" >
+    insert into tb_customer_focus
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cfsId != null" >
+        cfs_id,
+      </if>
+      <if test="cId != null" >
+        c_id,
+      </if>
+      <if test="cFocusid != null" >
+        c_focusid,
+      </if>
+      <if test="cfsTime != null" >
+        cfs_time,
+      </if>
+      <if test="cfsIfshield != null" >
+        cfs_ifshield,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cfsId != null" >
+        #{cfsId,jdbcType=INTEGER},
+      </if>
+      <if test="cId != null" >
+        #{cId,jdbcType=INTEGER},
+      </if>
+      <if test="cFocusid != null" >
+        #{cFocusid,jdbcType=INTEGER},
+      </if>
+      <if test="cfsTime != null" >
+        #{cfsTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cfsIfshield != null" >
+        #{cfsIfshield,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.fjnu.foodvomitslot.model.TbCustomerFocus" >
+    update tb_customer_focus
+    <set >
+      <if test="cId != null" >
+        c_id = #{cId,jdbcType=INTEGER},
+      </if>
+      <if test="cFocusid != null" >
+        c_focusid = #{cFocusid,jdbcType=INTEGER},
+      </if>
+      <if test="cfsTime != null" >
+        cfs_time = #{cfsTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cfsIfshield != null" >
+        cfs_ifshield = #{cfsIfshield,jdbcType=CHAR},
+      </if>
+    </set>
+    where cfs_id = #{cfsId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.fjnu.foodvomitslot.model.TbCustomerFocus" >
+    update tb_customer_focus
+    set c_id = #{cId,jdbcType=INTEGER},
+      c_focusid = #{cFocusid,jdbcType=INTEGER},
+      cfs_time = #{cfsTime,jdbcType=TIMESTAMP},
+      cfs_ifshield = #{cfsIfshield,jdbcType=CHAR}
+    where cfs_id = #{cfsId,jdbcType=INTEGER}
+  </update>
+</mapper>

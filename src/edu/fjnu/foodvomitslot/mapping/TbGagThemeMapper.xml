@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.fjnu.foodvomitslot.dao.TbGagThemeMapper" >
+  <resultMap id="BaseResultMap" type="edu.fjnu.foodvomitslot.model.TbGagTheme" >
+    <id column="gt_id" property="gtId" jdbcType="INTEGER" />
+    <result column="gt_name" property="gtName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    gt_id, gt_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_gag_theme
+    where gt_id = #{gtId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_gag_theme
+    where gt_id = #{gtId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.fjnu.foodvomitslot.model.TbGagTheme" >
+    insert into tb_gag_theme (gt_id, gt_name)
+    values (#{gtId,jdbcType=INTEGER}, #{gtName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.fjnu.foodvomitslot.model.TbGagTheme" >
+    insert into tb_gag_theme
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gtId != null" >
+        gt_id,
+      </if>
+      <if test="gtName != null" >
+        gt_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gtId != null" >
+        #{gtId,jdbcType=INTEGER},
+      </if>
+      <if test="gtName != null" >
+        #{gtName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.fjnu.foodvomitslot.model.TbGagTheme" >
+    update tb_gag_theme
+    <set >
+      <if test="gtName != null" >
+        gt_name = #{gtName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where gt_id = #{gtId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.fjnu.foodvomitslot.model.TbGagTheme" >
+    update tb_gag_theme
+    set gt_name = #{gtName,jdbcType=VARCHAR}
+    where gt_id = #{gtId,jdbcType=INTEGER}
+  </update>
+</mapper>

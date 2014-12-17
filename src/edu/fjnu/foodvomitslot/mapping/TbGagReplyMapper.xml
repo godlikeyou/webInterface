@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="edu.fjnu.foodvomitslot.dao.TbGagReplyMapper" >
+  <resultMap id="BaseResultMap" type="edu.fjnu.foodvomitslot.model.TbGagReply" >
+    <id column="gr_id" property="grId" jdbcType="INTEGER" />
+    <result column="g_id" property="gId" jdbcType="INTEGER" />
+    <result column="gr_content" property="grContent" jdbcType="VARCHAR" />
+    <result column="gr_time" property="grTime" jdbcType="TIMESTAMP" />
+    <result column="c_id" property="cId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    gr_id, g_id, gr_content, gr_time, c_id
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_gag_reply
+    where gr_id = #{grId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_gag_reply
+    where gr_id = #{grId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="edu.fjnu.foodvomitslot.model.TbGagReply" >
+    insert into tb_gag_reply (gr_id, g_id, gr_content, 
+      gr_time, c_id)
+    values (#{grId,jdbcType=INTEGER}, #{gId,jdbcType=INTEGER}, #{grContent,jdbcType=VARCHAR}, 
+      #{grTime,jdbcType=TIMESTAMP}, #{cId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="edu.fjnu.foodvomitslot.model.TbGagReply" >
+    insert into tb_gag_reply
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="grId != null" >
+        gr_id,
+      </if>
+      <if test="gId != null" >
+        g_id,
+      </if>
+      <if test="grContent != null" >
+        gr_content,
+      </if>
+      <if test="grTime != null" >
+        gr_time,
+      </if>
+      <if test="cId != null" >
+        c_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="grId != null" >
+        #{grId,jdbcType=INTEGER},
+      </if>
+      <if test="gId != null" >
+        #{gId,jdbcType=INTEGER},
+      </if>
+      <if test="grContent != null" >
+        #{grContent,jdbcType=VARCHAR},
+      </if>
+      <if test="grTime != null" >
+        #{grTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cId != null" >
+        #{cId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="edu.fjnu.foodvomitslot.model.TbGagReply" >
+    update tb_gag_reply
+    <set >
+      <if test="gId != null" >
+        g_id = #{gId,jdbcType=INTEGER},
+      </if>
+      <if test="grContent != null" >
+        gr_content = #{grContent,jdbcType=VARCHAR},
+      </if>
+      <if test="grTime != null" >
+        gr_time = #{grTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cId != null" >
+        c_id = #{cId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where gr_id = #{grId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="edu.fjnu.foodvomitslot.model.TbGagReply" >
+    update tb_gag_reply
+    set g_id = #{gId,jdbcType=INTEGER},
+      gr_content = #{grContent,jdbcType=VARCHAR},
+      gr_time = #{grTime,jdbcType=TIMESTAMP},
+      c_id = #{cId,jdbcType=INTEGER}
+    where gr_id = #{grId,jdbcType=INTEGER}
+  </update>
+</mapper>
