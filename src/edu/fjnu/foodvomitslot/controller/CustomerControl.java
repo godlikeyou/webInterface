@@ -41,7 +41,7 @@ public class CustomerControl {
 		boolean flag = this.customerService.customerLogin("Àî°×", "123456");
 		System.out.println(flag);
 		//ModelAndView mv = new ModelAndView() ;
-		String xx = "bbbbbbbb";
+		String xx = "bbbbbxxb";
 		return xx;
 	}
 	
