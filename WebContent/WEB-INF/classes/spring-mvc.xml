@@ -9,7 +9,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd
 
 	<!-- controller包(自动注入) -->
 	<context:component-scan base-package="edu.fjnu.foodvomitslot.controller" />
-
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
 	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 -->
 	<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
 		<property name="supportedMediaTypes">
