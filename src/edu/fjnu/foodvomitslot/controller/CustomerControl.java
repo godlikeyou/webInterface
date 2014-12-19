@@ -1,23 +1,20 @@
 package edu.fjnu.foodvomitslot.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import org.apache.jasper.tagplugins.jstl.core.Out;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
-
-
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 import edu.fjnu.foodvomitslot.service.CustomerServiceInte;
 
@@ -58,5 +55,20 @@ public class CustomerControl {
 		//System.out.println(flag);
 		String xx = customername+customerpasswd;
 		return xx;
+	}
+	
+	@RequestMapping(value="/blogx/{blogId}",method=RequestMethod.GET)
+	@ResponseBody
+	public JSONObject customerLogin1(@PathVariable("blogId") Long blogid,HttpServletRequest request,HttpServletResponse response){
+		System.out.println("......."+blogid);
+		boolean flag = this.customerService.customerLogin("Àî°×", "123456");
+		System.out.println(flag);
+		//ModelAndView mv = new ModelAndView() ;
+		Map<String,String> map = new HashMap<String,String>();
+		map.put("name", "kamal");
+		map.put("id", "123");
+		JSONObject jo = JSONObject.fromObject(map);
+		String xx = "bbbbbxxb";
+		return jo;
 	}
 }
