@@ -13,6 +13,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 import org.apache.catalina.connector.Response;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpMethod;
@@ -22,9 +25,19 @@ import org.apache.commons.httpclient.params.HttpMethodParams;
 public class test {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String post = sendPost("http://localhost/ssm_demo/blog/32", "");
-		System.out.println("post===="+post);
+		// TODO Auto-generated method stub		
+		JSONObject jo = new JSONObject();
+		Map<String, String> map1 = new HashMap<String, String>();
+        map1.put("customerName", "李白");
+        map1.put("customerPasswd", "123456");
+        JSONArray ja1 = JSONArray.fromObject(map1);
+        jo.put("customer", ja1);
+        String[] param = new String[2];
+        param[0] = "customer";
+        param[1] = jo.toString();
+        doPost("http://localhost/ssm_demo/customer/1.0/customerLogin",param);
+        //String post = sendPost("http://localhost/ssm_demo/customer/1.0/customerLogin",param);
+		//System.out.println("post===="+post);
 		/*Map<String,Object> m = new HashMap<String,Object>();
 		try {
 			doPut("http://localhost/ssm_demo/blog/32",m);
@@ -182,13 +195,13 @@ public class test {
 
 	}
 	
-	private static void doPost(){
+	private static void doPost(String url,String[] param){
 		try {
 		    /** post方式 */
 		    HttpClient client = new HttpClient();
-		    PostMethod postMethod = new PostMethod("http://localhost/ssm_demo/blog/32");
+		    PostMethod postMethod = new PostMethod(url);
 		    // 参数设置
-		    postMethod.setParameter("", "");
+		    postMethod.setParameter(param[0],param[1]);
 		    // 执行postMethod
 		    client.getParams().setParameter(HttpMethodParams.HTTP_CONTENT_CHARSET, "utf-8");
 		    // 执行并返回状态
