@@ -204,7 +204,7 @@ public class test {
 		    postMethod.setParameter(param[0],param[1]);
 		    // 执行postMethod
 		    client.getParams().setParameter(HttpMethodParams.HTTP_CONTENT_CHARSET, "utf-8");
-		    // 执行并返回状态
+		    // 执行并返回状态昌
 		    int status = client.executeMethod(postMethod);
 		    System.out.println("status==="+status);
 		    byte[] getUrl = postMethod.getResponseBody();
