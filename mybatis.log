@@ -1275,3 +1275,168 @@
 [DEBUG][2014-12-19 11:59:07,421][org.apache.commons.httpclient.HttpMethodBase]Resorting to protocol version default close connection policy
 [DEBUG][2014-12-19 11:59:07,421][org.apache.commons.httpclient.HttpMethodBase]Should NOT close connection, using HTTP/1.1
 [DEBUG][2014-12-19 11:59:07,421][org.apache.commons.httpclient.HttpConnection]Releasing connection back to connection manager.
+[DEBUG][2014-12-19 14:48:21,047][org.apache.commons.httpclient.HttpClient]Java version: 1.7.0_71
+[DEBUG][2014-12-19 14:48:21,088][org.apache.commons.httpclient.HttpClient]Java vendor: Oracle Corporation
+[DEBUG][2014-12-19 14:48:21,088][org.apache.commons.httpclient.HttpClient]Java class path: E:\androidservice\webinterface\build\classes;D:\apache-tomcat-7.0.55\lib\annotations-api.jar;D:\apache-tomcat-7.0.55\lib\catalina-ant.jar;D:\apache-tomcat-7.0.55\lib\catalina-ha.jar;D:\apache-tomcat-7.0.55\lib\catalina-tribes.jar;D:\apache-tomcat-7.0.55\lib\catalina.jar;D:\apache-tomcat-7.0.55\lib\ecj-4.4.jar;D:\apache-tomcat-7.0.55\lib\el-api.jar;D:\apache-tomcat-7.0.55\lib\jasper-el.jar;D:\apache-tomcat-7.0.55\lib\jasper.jar;D:\apache-tomcat-7.0.55\lib\jsp-api.jar;D:\apache-tomcat-7.0.55\lib\servlet-api.jar;D:\apache-tomcat-7.0.55\lib\tomcat-api.jar;D:\apache-tomcat-7.0.55\lib\tomcat-coyote.jar;D:\apache-tomcat-7.0.55\lib\tomcat-dbcp.jar;D:\apache-tomcat-7.0.55\lib\tomcat-i18n-es.jar;D:\apache-tomcat-7.0.55\lib\tomcat-i18n-fr.jar;D:\apache-tomcat-7.0.55\lib\tomcat-i18n-ja.jar;D:\apache-tomcat-7.0.55\lib\tomcat-jdbc.jar;D:\apache-tomcat-7.0.55\lib\tomcat-util.jar;D:\apache-tomcat-7.0.55\lib\tomcat7-websocket.jar;D:\apache-tomcat-7.0.55\lib\websocket-api.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\aopalliance-1.0.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\aspectjweaver-1.7.1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-beanutils-1.8.0.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-codec-1.4.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-collections-3.1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-fileupload-1.2.2.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-httpclient-3.0.1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-lang-2.6.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-logging-1.1.1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-logging.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\druid-0.2.9.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\ezmorph-1.0.2.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\httpclient-cache-4.3.1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\jackson-core-asl-1.9.12.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\jackson-mapper-asl-1.9.12.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\json-lib-2.4-jdk15.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\jstl-1.2.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\junit-4.11.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\log4j-1.2.14.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\mybatis-3.1.1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\mybatis-spring-1.1.1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\mysql-connector-java-5.1.21.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\servlet-api-3.0-alpha-1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-aop-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-beans-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-context-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-core-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-expression-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-jdbc-3.1.1.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-test-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-tx-3.1.1.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-web-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-webmvc-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\urlrewritefilter-4.0.3.jar;E:\androidservice\webinterface\WebContent\WEB-INF\classes
+[DEBUG][2014-12-19 14:48:21,088][org.apache.commons.httpclient.HttpClient]Operating system name: Windows 7
+[DEBUG][2014-12-19 14:48:21,088][org.apache.commons.httpclient.HttpClient]Operating system architecture: x86
+[DEBUG][2014-12-19 14:48:21,088][org.apache.commons.httpclient.HttpClient]Operating system version: 6.1
+[DEBUG][2014-12-19 14:48:21,186][org.apache.commons.httpclient.HttpClient]SUN 1.7: SUN (DSA key/parameter generation; DSA signing; SHA-1, MD5 digests; SecureRandom; X.509 certificates; JKS keystore; PKIX CertPathValidator; PKIX CertPathBuilder; LDAP, Collection CertStores, JavaPolicy Policy; JavaLoginConfig Configuration)
+[DEBUG][2014-12-19 14:48:21,186][org.apache.commons.httpclient.HttpClient]SunRsaSign 1.7: Sun RSA signature provider
+[DEBUG][2014-12-19 14:48:21,186][org.apache.commons.httpclient.HttpClient]SunEC 1.7: Sun Elliptic Curve provider (EC, ECDSA, ECDH)
+[DEBUG][2014-12-19 14:48:21,186][org.apache.commons.httpclient.HttpClient]SunJSSE 1.7: Sun JSSE provider(PKCS12, SunX509 key/trust factories, SSLv3, TLSv1)
+[DEBUG][2014-12-19 14:48:21,186][org.apache.commons.httpclient.HttpClient]SunJCE 1.7: SunJCE Provider (implements RSA, DES, Triple DES, AES, Blowfish, ARCFOUR, RC2, PBE, Diffie-Hellman, HMAC)
+[DEBUG][2014-12-19 14:48:21,187][org.apache.commons.httpclient.HttpClient]SunJGSS 1.7: Sun (Kerberos v5, SPNEGO)
+[DEBUG][2014-12-19 14:48:21,187][org.apache.commons.httpclient.HttpClient]SunSASL 1.7: Sun SASL provider(implements client mechanisms for: DIGEST-MD5, GSSAPI, EXTERNAL, PLAIN, CRAM-MD5, NTLM; server mechanisms for: DIGEST-MD5, GSSAPI, CRAM-MD5, NTLM)
+[DEBUG][2014-12-19 14:48:21,187][org.apache.commons.httpclient.HttpClient]XMLDSig 1.0: XMLDSig (DOM XMLSignatureFactory; DOM KeyInfoFactory)
+[DEBUG][2014-12-19 14:48:21,187][org.apache.commons.httpclient.HttpClient]SunPCSC 1.7: Sun PC/SC provider
+[DEBUG][2014-12-19 14:48:21,187][org.apache.commons.httpclient.HttpClient]SunMSCAPI 1.7: Sun's Microsoft Crypto API provider
+[DEBUG][2014-12-19 14:48:21,189][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.useragent = Jakarta Commons-HttpClient/3.0.1
+[DEBUG][2014-12-19 14:48:21,191][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.protocol.version = HTTP/1.1
+[DEBUG][2014-12-19 14:48:21,192][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.connection-manager.class = class org.apache.commons.httpclient.SimpleHttpConnectionManager
+[DEBUG][2014-12-19 14:48:21,192][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.protocol.cookie-policy = rfc2109
+[DEBUG][2014-12-19 14:48:21,192][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.protocol.element-charset = US-ASCII
+[DEBUG][2014-12-19 14:48:21,192][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.protocol.content-charset = ISO-8859-1
+[DEBUG][2014-12-19 14:48:21,194][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.method.retry-handler = org.apache.commons.httpclient.DefaultHttpMethodRetryHandler@513098
+[DEBUG][2014-12-19 14:48:21,194][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.dateparser.patterns = [EEE, dd MMM yyyy HH:mm:ss zzz, EEEE, dd-MMM-yy HH:mm:ss zzz, EEE MMM d HH:mm:ss yyyy, EEE, dd-MMM-yyyy HH:mm:ss z, EEE, dd-MMM-yyyy HH-mm-ss z, EEE, dd MMM yy HH:mm:ss z, EEE dd-MMM-yyyy HH:mm:ss z, EEE dd MMM yyyy HH:mm:ss z, EEE dd-MMM-yyyy HH-mm-ss z, EEE dd-MMM-yy HH:mm:ss z, EEE dd MMM yy HH:mm:ss z, EEE,dd-MMM-yy HH:mm:ss z, EEE,dd-MMM-yyyy HH:mm:ss z, EEE, dd-MM-yyyy HH:mm:ss z]
+[DEBUG][2014-12-19 14:48:21,229][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.protocol.content-charset = utf-8
+[DEBUG][2014-12-19 14:48:21,239][org.apache.commons.httpclient.HttpConnection]Open connection to localhost:80
+[DEBUG][2014-12-19 14:48:22,248][org.apache.commons.httpclient.HttpMethodDirector]Closing the connection.
+[INFO][2014-12-19 14:48:22,249][org.apache.commons.httpclient.HttpMethodDirector]I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+[DEBUG][2014-12-19 14:48:22,252][org.apache.commons.httpclient.HttpMethodDirector]Connection refused: connect
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:79)
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:121)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:706)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:386)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:170)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:396)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:324)
+	at edu.fjnu.foodvomitslot.controller.test.doPost(test.java:208)
+	at edu.fjnu.foodvomitslot.controller.test.main(test.java:38)
+[INFO][2014-12-19 14:48:22,256][org.apache.commons.httpclient.HttpMethodDirector]Retrying request
+[DEBUG][2014-12-19 14:48:22,257][org.apache.commons.httpclient.HttpConnection]Open connection to localhost:80
+[DEBUG][2014-12-19 14:48:23,258][org.apache.commons.httpclient.HttpMethodDirector]Closing the connection.
+[INFO][2014-12-19 14:48:23,258][org.apache.commons.httpclient.HttpMethodDirector]I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+[DEBUG][2014-12-19 14:48:23,259][org.apache.commons.httpclient.HttpMethodDirector]Connection refused: connect
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:79)
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:121)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:706)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:386)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:170)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:396)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:324)
+	at edu.fjnu.foodvomitslot.controller.test.doPost(test.java:208)
+	at edu.fjnu.foodvomitslot.controller.test.main(test.java:38)
+[INFO][2014-12-19 14:48:23,260][org.apache.commons.httpclient.HttpMethodDirector]Retrying request
+[DEBUG][2014-12-19 14:48:23,260][org.apache.commons.httpclient.HttpConnection]Open connection to localhost:80
+[DEBUG][2014-12-19 14:48:24,261][org.apache.commons.httpclient.HttpMethodDirector]Closing the connection.
+[INFO][2014-12-19 14:48:24,262][org.apache.commons.httpclient.HttpMethodDirector]I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+[DEBUG][2014-12-19 14:48:24,262][org.apache.commons.httpclient.HttpMethodDirector]Connection refused: connect
+java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at java.net.Socket.<init>(Unknown Source)
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:79)
+	at org.apache.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:121)
+	at org.apache.commons.httpclient.HttpConnection.open(HttpConnection.java:706)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeWithRetry(HttpMethodDirector.java:386)
+	at org.apache.commons.httpclient.HttpMethodDirector.executeMethod(HttpMethodDirector.java:170)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:396)
+	at org.apache.commons.httpclient.HttpClient.executeMethod(HttpClient.java:324)
+	at edu.fjnu.foodvomitslot.controller.test.doPost(test.java:208)
+	at edu.fjnu.foodvomitslot.controller.test.main(test.java:38)
+[INFO][2014-12-19 14:48:24,263][org.apache.commons.httpclient.HttpMethodDirector]Retrying request
+[DEBUG][2014-12-19 14:48:24,263][org.apache.commons.httpclient.HttpConnection]Open connection to localhost:80
+[DEBUG][2014-12-19 14:48:25,263][org.apache.commons.httpclient.HttpMethodDirector]Closing the connection.
+[DEBUG][2014-12-19 14:48:25,263][org.apache.commons.httpclient.HttpMethodDirector]Method retry handler returned false. Automatic recovery will not be attempted
+[DEBUG][2014-12-19 14:48:25,264][org.apache.commons.httpclient.HttpConnection]Releasing connection back to connection manager.
+[DEBUG][2014-12-19 14:48:59,188][org.apache.commons.httpclient.HttpClient]Java version: 1.7.0_71
+[DEBUG][2014-12-19 14:48:59,212][org.apache.commons.httpclient.HttpClient]Java vendor: Oracle Corporation
+[DEBUG][2014-12-19 14:48:59,212][org.apache.commons.httpclient.HttpClient]Java class path: E:\androidservice\webinterface\build\classes;D:\apache-tomcat-7.0.55\lib\annotations-api.jar;D:\apache-tomcat-7.0.55\lib\catalina-ant.jar;D:\apache-tomcat-7.0.55\lib\catalina-ha.jar;D:\apache-tomcat-7.0.55\lib\catalina-tribes.jar;D:\apache-tomcat-7.0.55\lib\catalina.jar;D:\apache-tomcat-7.0.55\lib\ecj-4.4.jar;D:\apache-tomcat-7.0.55\lib\el-api.jar;D:\apache-tomcat-7.0.55\lib\jasper-el.jar;D:\apache-tomcat-7.0.55\lib\jasper.jar;D:\apache-tomcat-7.0.55\lib\jsp-api.jar;D:\apache-tomcat-7.0.55\lib\servlet-api.jar;D:\apache-tomcat-7.0.55\lib\tomcat-api.jar;D:\apache-tomcat-7.0.55\lib\tomcat-coyote.jar;D:\apache-tomcat-7.0.55\lib\tomcat-dbcp.jar;D:\apache-tomcat-7.0.55\lib\tomcat-i18n-es.jar;D:\apache-tomcat-7.0.55\lib\tomcat-i18n-fr.jar;D:\apache-tomcat-7.0.55\lib\tomcat-i18n-ja.jar;D:\apache-tomcat-7.0.55\lib\tomcat-jdbc.jar;D:\apache-tomcat-7.0.55\lib\tomcat-util.jar;D:\apache-tomcat-7.0.55\lib\tomcat7-websocket.jar;D:\apache-tomcat-7.0.55\lib\websocket-api.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\aopalliance-1.0.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\aspectjweaver-1.7.1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-beanutils-1.8.0.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-codec-1.4.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-collections-3.1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-fileupload-1.2.2.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-httpclient-3.0.1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-lang-2.6.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-logging-1.1.1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\commons-logging.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\druid-0.2.9.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\ezmorph-1.0.2.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\httpclient-cache-4.3.1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\jackson-core-asl-1.9.12.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\jackson-mapper-asl-1.9.12.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\json-lib-2.4-jdk15.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\jstl-1.2.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\junit-4.11.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\log4j-1.2.14.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\mybatis-3.1.1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\mybatis-spring-1.1.1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\mysql-connector-java-5.1.21.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\servlet-api-3.0-alpha-1.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-aop-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-beans-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-context-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-core-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-expression-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-jdbc-3.1.1.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-test-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-tx-3.1.1.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-web-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\spring-webmvc-3.2.0.RELEASE.jar;E:\androidservice\webinterface\WebContent\WEB-INF\lib\urlrewritefilter-4.0.3.jar;E:\androidservice\webinterface\WebContent\WEB-INF\classes
+[DEBUG][2014-12-19 14:48:59,213][org.apache.commons.httpclient.HttpClient]Operating system name: Windows 7
+[DEBUG][2014-12-19 14:48:59,213][org.apache.commons.httpclient.HttpClient]Operating system architecture: x86
+[DEBUG][2014-12-19 14:48:59,213][org.apache.commons.httpclient.HttpClient]Operating system version: 6.1
+[DEBUG][2014-12-19 14:48:59,274][org.apache.commons.httpclient.HttpClient]SUN 1.7: SUN (DSA key/parameter generation; DSA signing; SHA-1, MD5 digests; SecureRandom; X.509 certificates; JKS keystore; PKIX CertPathValidator; PKIX CertPathBuilder; LDAP, Collection CertStores, JavaPolicy Policy; JavaLoginConfig Configuration)
+[DEBUG][2014-12-19 14:48:59,274][org.apache.commons.httpclient.HttpClient]SunRsaSign 1.7: Sun RSA signature provider
+[DEBUG][2014-12-19 14:48:59,275][org.apache.commons.httpclient.HttpClient]SunEC 1.7: Sun Elliptic Curve provider (EC, ECDSA, ECDH)
+[DEBUG][2014-12-19 14:48:59,275][org.apache.commons.httpclient.HttpClient]SunJSSE 1.7: Sun JSSE provider(PKCS12, SunX509 key/trust factories, SSLv3, TLSv1)
+[DEBUG][2014-12-19 14:48:59,275][org.apache.commons.httpclient.HttpClient]SunJCE 1.7: SunJCE Provider (implements RSA, DES, Triple DES, AES, Blowfish, ARCFOUR, RC2, PBE, Diffie-Hellman, HMAC)
+[DEBUG][2014-12-19 14:48:59,275][org.apache.commons.httpclient.HttpClient]SunJGSS 1.7: Sun (Kerberos v5, SPNEGO)
+[DEBUG][2014-12-19 14:48:59,275][org.apache.commons.httpclient.HttpClient]SunSASL 1.7: Sun SASL provider(implements client mechanisms for: DIGEST-MD5, GSSAPI, EXTERNAL, PLAIN, CRAM-MD5, NTLM; server mechanisms for: DIGEST-MD5, GSSAPI, CRAM-MD5, NTLM)
+[DEBUG][2014-12-19 14:48:59,275][org.apache.commons.httpclient.HttpClient]XMLDSig 1.0: XMLDSig (DOM XMLSignatureFactory; DOM KeyInfoFactory)
+[DEBUG][2014-12-19 14:48:59,275][org.apache.commons.httpclient.HttpClient]SunPCSC 1.7: Sun PC/SC provider
+[DEBUG][2014-12-19 14:48:59,275][org.apache.commons.httpclient.HttpClient]SunMSCAPI 1.7: Sun's Microsoft Crypto API provider
+[DEBUG][2014-12-19 14:48:59,277][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.useragent = Jakarta Commons-HttpClient/3.0.1
+[DEBUG][2014-12-19 14:48:59,279][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.protocol.version = HTTP/1.1
+[DEBUG][2014-12-19 14:48:59,280][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.connection-manager.class = class org.apache.commons.httpclient.SimpleHttpConnectionManager
+[DEBUG][2014-12-19 14:48:59,280][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.protocol.cookie-policy = rfc2109
+[DEBUG][2014-12-19 14:48:59,280][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.protocol.element-charset = US-ASCII
+[DEBUG][2014-12-19 14:48:59,280][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.protocol.content-charset = ISO-8859-1
+[DEBUG][2014-12-19 14:48:59,281][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.method.retry-handler = org.apache.commons.httpclient.DefaultHttpMethodRetryHandler@1128ee5
+[DEBUG][2014-12-19 14:48:59,281][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.dateparser.patterns = [EEE, dd MMM yyyy HH:mm:ss zzz, EEEE, dd-MMM-yy HH:mm:ss zzz, EEE MMM d HH:mm:ss yyyy, EEE, dd-MMM-yyyy HH:mm:ss z, EEE, dd-MMM-yyyy HH-mm-ss z, EEE, dd MMM yy HH:mm:ss z, EEE dd-MMM-yyyy HH:mm:ss z, EEE dd MMM yyyy HH:mm:ss z, EEE dd-MMM-yyyy HH-mm-ss z, EEE dd-MMM-yy HH:mm:ss z, EEE dd MMM yy HH:mm:ss z, EEE,dd-MMM-yy HH:mm:ss z, EEE,dd-MMM-yyyy HH:mm:ss z, EEE, dd-MM-yyyy HH:mm:ss z]
+[DEBUG][2014-12-19 14:48:59,322][org.apache.commons.httpclient.params.DefaultHttpParams]Set parameter http.protocol.content-charset = utf-8
+[DEBUG][2014-12-19 14:48:59,332][org.apache.commons.httpclient.HttpConnection]Open connection to localhost:8080
+[DEBUG][2014-12-19 14:48:59,342][httpclient.wire.header]>> "POST /ssm_demo/customer/1.0/customerLogin HTTP/1.1[\r][\n]"
+[DEBUG][2014-12-19 14:48:59,343][org.apache.commons.httpclient.HttpMethodBase]Adding Host request header
+[DEBUG][2014-12-19 14:48:59,350][org.apache.commons.httpclient.HttpMethodBase]Default charset used: utf-8
+[DEBUG][2014-12-19 14:48:59,353][org.apache.commons.httpclient.HttpMethodBase]Default charset used: utf-8
+[DEBUG][2014-12-19 14:48:59,353][httpclient.wire.header]>> "User-Agent: Jakarta Commons-HttpClient/3.0.1[\r][\n]"
+[DEBUG][2014-12-19 14:48:59,353][httpclient.wire.header]>> "Host: localhost:8080[\r][\n]"
+[DEBUG][2014-12-19 14:48:59,353][httpclient.wire.header]>> "Content-Length: 127[\r][\n]"
+[DEBUG][2014-12-19 14:48:59,353][httpclient.wire.header]>> "Content-Type: application/x-www-form-urlencoded[\r][\n]"
+[DEBUG][2014-12-19 14:48:59,353][httpclient.wire.header]>> "[\r][\n]"
+[DEBUG][2014-12-19 14:48:59,354][httpclient.wire.content]>> "customer=%7B%22customer%22%3A%5B%7B%22customerName%22%3A%22%E6%9D%8E%E7%99%BD%22%2C%22customerPasswd%22%3A%22123456%22%7D%5D%7D"
+[DEBUG][2014-12-19 14:48:59,354][org.apache.commons.httpclient.methods.EntityEnclosingMethod]Request body sent
+[DEBUG][2014-12-19 14:48:59,593][httpclient.wire.header]<< "HTTP/1.1 200 OK[\r][\n]"
+[DEBUG][2014-12-19 14:48:59,595][httpclient.wire.header]<< "Server: Apache-Coyote/1.1[\r][\n]"
+[DEBUG][2014-12-19 14:48:59,595][httpclient.wire.header]<< "Content-Type: text/html;charset=UTF-8[\r][\n]"
+[DEBUG][2014-12-19 14:48:59,595][httpclient.wire.header]<< "Transfer-Encoding: chunked[\r][\n]"
+[DEBUG][2014-12-19 14:48:59,595][httpclient.wire.header]<< "Date: Fri, 19 Dec 2014 06:48:59 GMT[\r][\n]"
+[WARN][2014-12-19 14:48:59,596][org.apache.commons.httpclient.HttpMethodBase]Going to buffer response body of large or unknown size. Using getResponseBodyAsStream instead is recommended.
+[DEBUG][2014-12-19 14:48:59,597][org.apache.commons.httpclient.HttpMethodBase]Buffering response body
+[DEBUG][2014-12-19 14:48:59,597][httpclient.wire.content]<< "e"
+[DEBUG][2014-12-19 14:48:59,597][httpclient.wire.content]<< "[\r]"
+[DEBUG][2014-12-19 14:48:59,597][httpclient.wire.content]<< "[\n]"
+[DEBUG][2014-12-19 14:48:59,597][httpclient.wire.content]<< ""[0xe6][0x9d][0x8e][0xe7][0x99][0xbd]123456""
+[DEBUG][2014-12-19 14:48:59,597][httpclient.wire.content]<< "[\r]"
+[DEBUG][2014-12-19 14:48:59,597][httpclient.wire.content]<< "[\n]"
+[DEBUG][2014-12-19 14:48:59,597][httpclient.wire.content]<< "0"
+[DEBUG][2014-12-19 14:48:59,597][httpclient.wire.content]<< "[\r]"
+[DEBUG][2014-12-19 14:48:59,597][httpclient.wire.content]<< "[\n]"
+[DEBUG][2014-12-19 14:48:59,597][httpclient.wire.content]<< "[\r]"
+[DEBUG][2014-12-19 14:48:59,598][httpclient.wire.content]<< "[\n]"
+[DEBUG][2014-12-19 14:48:59,598][org.apache.commons.httpclient.HttpMethodBase]Resorting to protocol version default close connection policy
+[DEBUG][2014-12-19 14:48:59,598][org.apache.commons.httpclient.HttpMethodBase]Should NOT close connection, using HTTP/1.1
+[DEBUG][2014-12-19 14:48:59,598][org.apache.commons.httpclient.HttpConnection]Releasing connection back to connection manager.
