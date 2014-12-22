@@ -23,7 +23,6 @@ public class CustomerServiceImpl implements CustomerServiceInte {
 	public boolean customerLogin(String cname, String passwd) {
 		// TODO Auto-generated method stub
 		TbCustomer c = customerMapper.selectCustomerByName(cname);
-		System.out.println(c);
 		if (c == null)
 			return false;
 		else {
@@ -32,6 +31,12 @@ public class CustomerServiceImpl implements CustomerServiceInte {
 			else
 				return false;
 		}
+	}
+
+	@Override
+	public TbCustomer getCustomerInfoByCid(Integer cid) {
+		// TODO Auto-generated method stub
+		return this.customerMapper.selectByPrimaryKey(cid);
 	}
 
 }

@@ -9,6 +9,9 @@ public interface TbCustomerMapper {
 
     int insertSelective(TbCustomer record);
 
+    /*
+     * 通过用户ID获取用户信息
+     */
     TbCustomer selectByPrimaryKey(Integer cId);
 
     int updateByPrimaryKeySelective(TbCustomer record);
