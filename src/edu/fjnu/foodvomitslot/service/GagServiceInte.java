@@ -4,6 +4,6 @@ import java.util.List;
 
 import edu.fjnu.foodvomitslot.model.TbGag;
 
-public interface CustomerServiceInte {
-	public boolean customerLogin(String cname,String passwd);	
+public interface GagServiceInte {
+	public List<TbGag> selectAllGag();
 }

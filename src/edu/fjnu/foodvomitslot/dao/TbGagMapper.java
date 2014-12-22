@@ -1,5 +1,8 @@
 package edu.fjnu.foodvomitslot.dao;
 
+
+import java.util.List;
+
 import edu.fjnu.foodvomitslot.model.TbGag;
 
 public interface TbGagMapper {
@@ -14,4 +17,6 @@ public interface TbGagMapper {
     int updateByPrimaryKeySelective(TbGag record);
 
     int updateByPrimaryKey(TbGag record);
+    
+    List<TbGag> selectAllGag();
 }
