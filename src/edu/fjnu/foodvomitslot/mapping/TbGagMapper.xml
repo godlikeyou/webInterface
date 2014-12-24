@@ -11,6 +11,23 @@
     <result column="gt_id" property="gtId" jdbcType="INTEGER" />
     <result column="gt_reccount" property="gtReccount" jdbcType="INTEGER" />
     <result column="gt_goodcount" property="gtGoodcount" jdbcType="INTEGER" />
+    <association property="school" javaType="edu.fjnu.foodvomitslot.model.TbSchool">
+    	<id column="s_id" property="sId" jdbcType="INTEGER" />
+    	<result column="s_name" property="sName" jdbcType="VARCHAR" />
+    	<result column="s_count" property="sCount" jdbcType="INTEGER" />
+    </association>
+    <association property="customer" javaType="edu.fjnu.foodvomitslot.model.TbCustomer">
+    	<id column="c_id" property="cId" jdbcType="INTEGER" />
+	    <result column="c_name" property="cName" jdbcType="VARCHAR" />
+	    <result column="c_nickname" property="cNickname" jdbcType="VARCHAR" />
+	    <result column="c_purl" property="cPurl" jdbcType="VARCHAR" />
+	    <result column="c_signature" property="cSignature" jdbcType="VARCHAR" />
+    </association>
+  </resultMap>
+  <resultMap id="SchoolMap" type="edu.fjnu.foodvomitslot.model.TbSchool" >
+    <id column="s_id" property="sId" jdbcType="INTEGER" />
+    <result column="s_name" property="sName" jdbcType="VARCHAR" />
+    <result column="s_count" property="sCount" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
     g_id, s_id, g_content, g_pic, g_time, c_id, gt_id, gt_reccount, gt_goodcount
@@ -22,9 +39,10 @@
     where g_id = #{gId,jdbcType=INTEGER}
   </select>
   <select id="selectAllGag" resultMap="BaseResultMap" >
-  	select
-  	<include refid="Base_Column_List"/>
-  	from tb_gag
+  	select s.s_name,g.g_id,s.s_id,s.s_count,g.g_content,g.g_pic,g.g_time,g.c_id,g.gt_id,
+  	g.gt_reccount,g.gt_goodcount,c.c_id,c.c_name,c.c_nickname,c.c_purl,c.c_signature from tb_gag g 
+    left outer join tb_school s on g.s_id=s.s_id
+    left outer join tb_customer c on c.c_id=g.c_id
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from tb_gag

@@ -6,7 +6,11 @@ public class TbGag {
     private Integer gId;
 
     private Integer sId;
-
+    
+    private TbSchool school;
+    
+    private TbCustomer customer;
+    
     private String gContent;
 
     private String gPic;
@@ -92,4 +96,20 @@ public class TbGag {
     public void setGtGoodcount(Integer gtGoodcount) {
         this.gtGoodcount = gtGoodcount;
     }
+
+	public TbSchool getSchool() {
+		return school;
+	}
+
+	public void setSchool(TbSchool school) {
+		this.school = school;
+	}
+
+	public TbCustomer getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(TbCustomer customer) {
+		this.customer = customer;
+	}
 }
