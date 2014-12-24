@@ -90,4 +90,9 @@
       cfs_ifshield = #{cfsIfshield,jdbcType=CHAR}
     where cfs_id = #{cfsId,jdbcType=INTEGER}
   </update>
+  <select id="customerFocusCount" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select count(c_id)
+    from tb_customer_focus
+    where c_id = #{cId,jdbcType=INTEGER}
+  </select>
 </mapper>

@@ -14,4 +14,6 @@ public interface TbCustomerFocusMapper {
     int updateByPrimaryKeySelective(TbCustomerFocus record);
 
     int updateByPrimaryKey(TbCustomerFocus record);
+    
+    int customerFocusCount(Integer cid);
 }

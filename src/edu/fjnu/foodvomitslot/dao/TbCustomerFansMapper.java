@@ -1,5 +1,7 @@
 package edu.fjnu.foodvomitslot.dao;
 
+import java.util.List;
+
 import edu.fjnu.foodvomitslot.model.TbCustomerFans;
 
 public interface TbCustomerFansMapper {
@@ -14,4 +16,10 @@ public interface TbCustomerFansMapper {
     int updateByPrimaryKeySelective(TbCustomerFans record);
 
     int updateByPrimaryKey(TbCustomerFans record);
+    
+    List<TbCustomerFans> selectCustomerFansByCid(Integer CId);
+    /*
+     * 获取用户粉丝量
+     */
+    int customerFansCount(Integer cid);
 }

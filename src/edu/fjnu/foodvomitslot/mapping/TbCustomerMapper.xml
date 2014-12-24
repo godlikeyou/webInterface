@@ -142,6 +142,6 @@
     select 
     <include refid="Base_Column_List" />
     from tb_customer
-    where c_name = #{name,jdbcType=VARCHAR}
+    where c_name = #{cName,jdbcType=VARCHAR}
   </select>
 </mapper>

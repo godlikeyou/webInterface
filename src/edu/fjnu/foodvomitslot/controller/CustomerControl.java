@@ -1,5 +1,4 @@
 package edu.fjnu.foodvomitslot.controller;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.fjnu.foodvomitslot.model.TbCustomer;
+import edu.fjnu.foodvomitslot.service.CustomerFansServiceInte;
 import edu.fjnu.foodvomitslot.service.CustomerServiceInte;
 
 @Controller
@@ -24,10 +24,15 @@ import edu.fjnu.foodvomitslot.service.CustomerServiceInte;
 public class CustomerControl {
 
 	CustomerServiceInte customerService;
-
+	CustomerFansServiceInte customerfansService;
 	@Autowired
 	public void setCustomerService(CustomerServiceInte customerService) {
 		this.customerService = customerService;
+	}
+	
+	@Autowired
+	public void setCustomerfansService(CustomerFansServiceInte customerfansService) {
+		this.customerfansService = customerfansService;
 	}
 
 	@RequestMapping(value = "/blog/{blogId}", method = RequestMethod.PUT)
@@ -47,34 +52,30 @@ public class CustomerControl {
 	 */
 	@RequestMapping(value = "/1.0/customerLogin", method = RequestMethod.POST)
 	@ResponseBody
-	public String customerLoginn(HttpServletRequest request,
+	public JSONArray customerLoginn(HttpServletRequest request,
 			HttpServletResponse response) {
-		// 获取传过来的json数据
-		System.out.println("xxx");
-		String customer = request.getParameter("customer");
-		// 解析
-		JSONObject jb = JSONObject.fromObject(customer);
-		JSONArray ja = jb.getJSONArray("customer");
-		String customername = ja.getJSONObject(0).getString("customerName");
-		String customerpasswd = ja.getJSONObject(0).getString("customerPasswd");
-		// 验证
-		boolean flag = this.customerService.customerLogin(customername,
-				customerpasswd);
+		String customerName = request.getParameter("customer");
+		String passwd = request.getParameter("passwd");
+		//boolean flag = this.customerService.customerLogin(customer,passwd);
 		// 组装json，返回
 		String result = null;
 		JSONObject jo = new JSONObject();
 		Map<String, String> map1 = new HashMap<String, String>();
 		JSONArray ja1 = new JSONArray();
-		if (flag == true) {
-			map1.put("result", "001");
-			ja1 = JSONArray.fromObject(map1);
-		} else {
-			map1.put("result", "002");
-			ja1 = JSONArray.fromObject(map1);
+		TbCustomer customer = this.customerService.getCustomerInfoByName(customerName);
+		if(customer == null){
+			map1.put("result", "003");
+		}else{
+			if(customer.getcPassword() == null || !customer.getcPassword().equals(passwd)){
+				map1.put("result", "002");
+			}else{
+				map1.put("result", "001");
+				int fansCount = this.customerfansService.getCustomerFansCount(customer.getcId());
+				map1.put("fansCount", String.valueOf(fansCount));
+			}
 		}
-		jo.put("customer", ja1);
-		result = jo.toString();
-		return result;
+		ja1 = JSONArray.fromObject(map1);
+		return ja1;
 	}
 
 	/*
@@ -101,7 +102,7 @@ public class CustomerControl {
 	@ResponseBody
 	public JSONObject customerLogin1(@PathVariable("blogId") Long blogid,HttpServletRequest request,HttpServletResponse response){
 		System.out.println("......."+blogid);
-		boolean flag = this.customerService.customerLogin("���", "123456");
+		boolean flag = this.customerService.customerLogin("���", "123456");
 		System.out.println(flag);
 		//ModelAndView mv = new ModelAndView() ;
 		Map<String,String> map = new HashMap<String,String>();

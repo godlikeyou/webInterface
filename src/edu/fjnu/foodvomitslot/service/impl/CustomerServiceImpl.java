@@ -39,4 +39,10 @@ public class CustomerServiceImpl implements CustomerServiceInte {
 		return this.customerMapper.selectByPrimaryKey(cid);
 	}
 
+	@Override
+	public TbCustomer getCustomerInfoByName(String name) {
+		// TODO Auto-generated method stub
+		return this.customerMapper.selectCustomerByName(name);
+	}
+
 }

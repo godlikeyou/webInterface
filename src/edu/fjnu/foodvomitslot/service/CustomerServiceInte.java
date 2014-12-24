@@ -12,5 +12,10 @@ public interface CustomerServiceInte {
 	 * 通过用户ID获取用户信息
 	 */
 	public TbCustomer getCustomerInfoByCid(Integer cid);
+	
+	/*
+	 * 通过用户名获取用户信息
+	 */
+	public TbCustomer getCustomerInfoByName(String name);
 
 }
