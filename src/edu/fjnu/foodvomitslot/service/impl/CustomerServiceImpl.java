@@ -1,12 +1,18 @@
 package edu.fjnu.foodvomitslot.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.google.common.collect.Maps;
+
 import edu.fjnu.foodvomitslot.dao.TbCustomerMapper;
 import edu.fjnu.foodvomitslot.model.TbCustomer;
 import edu.fjnu.foodvomitslot.service.CustomerServiceInte;
+import edu.fjnu.foodvomitslot.util.Page;
 
 @Service("customerService")
 @Transactional
@@ -45,4 +51,14 @@ public class CustomerServiceImpl implements CustomerServiceInte {
 		return this.customerMapper.selectCustomerByName(name);
 	}
 
+	public List<TbCustomer> selectByNameLevelSubject(String name, Page page) {  
+		  System.out.println("name==="+name);
+		  Map<String, Object> map = Maps.newHashMap();
+		  if (name != null && name.isEmpty()){  
+		    name = null;  
+		  }  
+		  map.put("name", name); 
+		  map.put("page", page);             //MAP的话加这一句就OK  
+		  return customerMapper.selectByNameLevelSubject(map);  
+	}  
 }

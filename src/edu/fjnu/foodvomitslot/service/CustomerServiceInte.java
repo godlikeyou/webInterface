@@ -1,9 +1,11 @@
 package edu.fjnu.foodvomitslot.service;
 
 import edu.fjnu.foodvomitslot.model.TbCustomer;
+
 import java.util.List;
 
 import edu.fjnu.foodvomitslot.model.TbGag;
+import edu.fjnu.foodvomitslot.util.Page;
 
 
 public interface CustomerServiceInte {
@@ -20,5 +22,5 @@ public interface CustomerServiceInte {
 	/*
 	 * 通过用户名获取用户信息
 	 */
-	public TbCustomer getCustomerInfoByName(String name);
+	public TbCustomer getCustomerInfoByName(String name);public List<TbCustomer> selectByNameLevelSubject(String name, Page page);
 }

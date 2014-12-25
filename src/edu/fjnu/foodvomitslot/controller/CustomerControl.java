@@ -1,5 +1,7 @@
 package edu.fjnu.foodvomitslot.controller;
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import edu.fjnu.foodvomitslot.model.TbCustomer;
 import edu.fjnu.foodvomitslot.service.CustomerFansServiceInte;
 import edu.fjnu.foodvomitslot.service.CustomerServiceInte;
+import edu.fjnu.foodvomitslot.util.Page;
 
 @Controller
 @RequestMapping("/customer")
@@ -25,13 +28,15 @@ public class CustomerControl {
 
 	CustomerServiceInte customerService;
 	CustomerFansServiceInte customerfansService;
+
 	@Autowired
 	public void setCustomerService(CustomerServiceInte customerService) {
 		this.customerService = customerService;
 	}
-	
+
 	@Autowired
-	public void setCustomerfansService(CustomerFansServiceInte customerfansService) {
+	public void setCustomerfansService(
+			CustomerFansServiceInte customerfansService) {
 		this.customerfansService = customerfansService;
 	}
 
@@ -56,21 +61,24 @@ public class CustomerControl {
 			HttpServletResponse response) {
 		String customerName = request.getParameter("customer");
 		String passwd = request.getParameter("passwd");
-		//boolean flag = this.customerService.customerLogin(customer,passwd);
+		// boolean flag = this.customerService.customerLogin(customer,passwd);
 		// 组装json，返回
 		String result = null;
 		JSONObject jo = new JSONObject();
 		Map<String, String> map1 = new HashMap<String, String>();
 		JSONArray ja1 = new JSONArray();
-		TbCustomer customer = this.customerService.getCustomerInfoByName(customerName);
-		if(customer == null){
+		TbCustomer customer = this.customerService
+				.getCustomerInfoByName(customerName);
+		if (customer == null) {
 			map1.put("result", "003");
-		}else{
-			if(customer.getcPassword() == null || !customer.getcPassword().equals(passwd)){
+		} else {
+			if (customer.getcPassword() == null
+					|| !customer.getcPassword().equals(passwd)) {
 				map1.put("result", "002");
-			}else{
+			} else {
 				map1.put("result", "001");
-				int fansCount = this.customerfansService.getCustomerFansCount(customer.getcId());
+				int fansCount = this.customerfansService
+						.getCustomerFansCount(customer.getcId());
 				map1.put("fansCount", String.valueOf(fansCount));
 			}
 		}
@@ -97,19 +105,33 @@ public class CustomerControl {
 		result = jo.toString();
 		return result;
 	}
-	
-	@RequestMapping(value="/blogx/{blogId}",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/blogx/{blogId}", method = RequestMethod.GET)
 	@ResponseBody
-	public JSONObject customerLogin1(@PathVariable("blogId") Long blogid,HttpServletRequest request,HttpServletResponse response){
-		System.out.println("......."+blogid);
+	public JSONObject customerLogin1(@PathVariable("blogId") Long blogid,
+			HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("......." + blogid);
 		boolean flag = this.customerService.customerLogin("���", "123456");
 		System.out.println(flag);
-		//ModelAndView mv = new ModelAndView() ;
-		Map<String,String> map = new HashMap<String,String>();
+		// ModelAndView mv = new ModelAndView() ;
+		Map<String, String> map = new HashMap<String, String>();
 		map.put("name", "kamal");
 		map.put("id", "123");
 		JSONObject jo = JSONObject.fromObject(map);
 		String xx = "bbbbbxxb";
 		return jo;
+	}
+
+	//分页查询测试
+	@RequestMapping(value = "/blog", method = RequestMethod.GET)
+	public String list() {
+		int pageNo = 2; //当前查询的页数
+		int pageSize = 2; //一页几条数据
+		Page page = Page.newBuilder(pageNo, pageSize, "blog");
+		page.getParams().put("name", "李白"); // 这里再保存查询条件
+		List<TbCustomer> listc = this.customerService.selectByNameLevelSubject(
+				"李白", page); // 这里将page返回前台
+		System.out.println("dfsdf=="+listc.size());
+		return listc.toString();
 	}
 }

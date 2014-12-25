@@ -144,4 +144,10 @@
     from tb_customer
     where c_name = #{cName,jdbcType=VARCHAR}
   </select>
+   <select id="selectByNameLevelSubject" resultMap="BaseResultMap" parameterType="java.util.Map" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_customer
+    where c_name = #{name}
+  </select>
 </mapper>

@@ -57,6 +57,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 		<property name="dataSource" ref="dataSource" />
 		<!-- 自动扫描entity目录，省略Configuration.xml里手工配置 -->
 		<property name="mapperLocations" value="classpath:edu/fjnu/foodvomitslot/mapping/*.xml" />
+		<property name="configLocation" value="/WEB-INF/classes/MyBatis.xml" />
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -101,5 +102,7 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
 		<aop:pointcut id="transactionPointcut" expression="execution(* edu.fjnu.foodvomitslot.service..*Impl.*(..))" />
 		<aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice" />
 	</aop:config>
+	
+	
 
 </beans>
