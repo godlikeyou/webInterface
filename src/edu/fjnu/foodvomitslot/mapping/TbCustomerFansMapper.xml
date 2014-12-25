@@ -90,4 +90,15 @@
       cf_status = #{cfStatus,jdbcType=CHAR}
     where cf_id = #{cfId,jdbcType=INTEGER}
   </update>
+  <select id="selectCustomerFansByCid" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+  	select 
+    <include refid="Base_Column_List" />
+    from tb_customer_fans
+    where c_id = #{cId,jdbcType=INTEGER}
+  </select>
+  <select id="customerFansCount" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+  	select count(c_id)
+    from tb_customer_fans
+    where c_id = #{cId,jdbcType=INTEGER}
+  </select>
 </mapper>

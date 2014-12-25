@@ -103,4 +103,11 @@
       ca_post = #{caPost,jdbcType=INTEGER}
     where ca_id = #{caId,jdbcType=INTEGER}
   </update>
+  <!-- 通过用户ID获取用户活跃信息 -->
+  <select id="selectCustomerActiveByCId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_customer_active
+    where c_id = #{cId,jdbcType=INTEGER}
+  </select>
 </mapper>
