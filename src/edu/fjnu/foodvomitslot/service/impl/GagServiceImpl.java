@@ -19,5 +19,16 @@ public class GagServiceImpl implements GagServiceInte {
 		// TODO Auto-generated method stub
 		return gagMapper.selectAllGag();
 	}
+	@Override
+	public int updateGag(TbGag g) {
+		// TODO Auto-generated method stub
+		return gagMapper.updateByPrimaryKeySelective(g);
+	}
+	@Override
+	public int insert(TbGag g) {
+		if( g == null)return -1;
+		// TODO Auto-generated method stub
+		return gagMapper.insert(g);
+	}
 	
 }
