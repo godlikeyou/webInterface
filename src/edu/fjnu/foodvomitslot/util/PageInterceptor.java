@@ -37,6 +37,7 @@ public class PageInterceptor implements Interceptor {
 		Object parameter = invocation.getArgs()[1];
 		BoundSql boundSql = mappedStatement.getBoundSql(parameter);
 		String originalSql = boundSql.getSql().trim();
+		System.out.println("sql"+originalSql);
 		Object parameterObject = boundSql.getParameterObject();
 		// Page对象获取，“信使”到达拦截器！
 		Page page = searchPageWithXpath(boundSql.getParameterObject(), ".",
@@ -44,6 +45,7 @@ public class PageInterceptor implements Interceptor {
 		if (page != null) {
 			// Page对象存在的场合，开始分页处理
 			String countSql = getCountSql(originalSql);
+			System.out.println("count"+countSql);
 			Connection connection = mappedStatement.getConfiguration()
 					.getEnvironment().getDataSource().getConnection();
 			PreparedStatement countStmt = connection.prepareStatement(countSql);
@@ -69,6 +71,7 @@ public class PageInterceptor implements Interceptor {
 			StringBuffer sb = new StringBuffer();
 			sb.append(originalSql).append(" limit ").append(offset).append(",")
 					.append(page.getPageSize());
+			System.out.println("osb"+sb.toString());
 			BoundSql newBoundSql = copyFromBoundSql(mappedStatement, boundSql,
 					sb.toString());
 			MappedStatement newMs = copyFromMappedStatement(mappedStatement,

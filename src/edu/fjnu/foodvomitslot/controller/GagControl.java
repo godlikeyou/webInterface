@@ -11,12 +11,15 @@ import net.sf.json.JSONArray;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.fjnu.foodvomitslot.model.TbGag;
 import edu.fjnu.foodvomitslot.service.GagServiceInte;
+import edu.fjnu.foodvomitslot.util.GlobalVariable;
+import edu.fjnu.foodvomitslot.util.Page;
 
 @Controller
 @RequestMapping("/article")
@@ -24,16 +27,27 @@ public class GagControl {
 	@Autowired
 	private GagServiceInte gagServiceInte;
 	
-	@RequestMapping(value="/allarticle",method=RequestMethod.GET)
+	@RequestMapping(value="/allarticle/{currentPage}",method=RequestMethod.GET)
 	@ResponseBody
-	public JSONArray showAllArticle(HttpServletRequest request,HttpServletResponse response){
-		List<TbGag> listGap = gagServiceInte.selectAllGag();
+	public JSONArray showAllArticle(@PathVariable String currentPage,HttpServletRequest request,HttpServletResponse response){
+		System.out.println("cu"+currentPage);
+		int pageSize = GlobalVariable.GAG_PAGE_SIZE;
+		Page page = Page.newBuilder(Integer.valueOf(currentPage), pageSize, "allarticle");
+		page.getParams().put("name", "李白");
+		List<TbGag> listGap = gagServiceInte.selectAllGag(page);
 		for(int i = 0;i < listGap.size();i ++){
 			System.out.println("xx"+listGap.get(i).getgContent());
 		}
 		JSONArray jo = JSONArray.fromObject(listGap);
 		System.out.println("xx+"+jo);
 		return jo;
+	}
+	
+	@RequestMapping(value="/gagsize",method=RequestMethod.GET)
+	@ResponseBody
+	public int countGag(HttpServletRequest request,HttpServletResponse response){
+		int size = gagServiceInte.countGag();
+		return size;
 	}
 	@RequestMapping(value="/post",method=RequestMethod.POST)
 	@ResponseBody

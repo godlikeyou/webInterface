@@ -2,8 +2,10 @@ package edu.fjnu.foodvomitslot.dao;
 
 
 import java.util.List;
+import java.util.Map;
 
 import edu.fjnu.foodvomitslot.model.TbGag;
+import edu.fjnu.foodvomitslot.util.Page;
 
 public interface TbGagMapper {
     int deleteByPrimaryKey(Integer gId);
@@ -18,5 +20,6 @@ public interface TbGagMapper {
 
     int updateByPrimaryKey(TbGag record);
     
-    List<TbGag> selectAllGag();
+    List<TbGag> selectAllGag(Map map);
+    int countGag();
 }

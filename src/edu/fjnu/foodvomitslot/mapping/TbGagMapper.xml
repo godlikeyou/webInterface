@@ -38,11 +38,14 @@
     from tb_gag
     where g_id = #{gId,jdbcType=INTEGER}
   </select>
-  <select id="selectAllGag" resultMap="BaseResultMap" >
-  	select s.s_name,g.g_id,s.s_id,s.s_count,g.g_content,g.g_pic,g.g_time,g.c_id,g.gt_id,
+  <select id="countGag" resultType="int">
+  	select count(*) from tb_gag
+  </select>
+  <select id="selectAllGag" resultMap="BaseResultMap" parameterType="java.util.Map" >
+  	select s.s_name,g.g_id,s.s_id,s.s_count,g.g_content,g.g_pic,g.g_time,g.gt_id,
   	g.gt_reccount,g.gt_goodcount,c.c_id,c.c_name,c.c_nickname,c.c_purl,c.c_signature from tb_gag g 
     left outer join tb_school s on g.s_id=s.s_id
-    left outer join tb_customer c on c.c_id=g.c_id
+    left outer join tb_customer c on c.c_id=g.c_id order by g.g_time desc
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from tb_gag
