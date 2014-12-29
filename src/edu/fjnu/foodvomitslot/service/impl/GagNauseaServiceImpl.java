@@ -1,12 +1,16 @@
 package edu.fjnu.foodvomitslot.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.fjnu.foodvomitslot.dao.TbGagNauseaMapper;
 import edu.fjnu.foodvomitslot.model.TbGagNausea;
 import edu.fjnu.foodvomitslot.service.GagNauseaServiceInte;
 import edu.fjnu.foodvomitslot.util.GlobalVariable;
 
+@Service("gagNauseaService")
+@Transactional
 public class GagNauseaServiceImpl implements GagNauseaServiceInte {
 	@Autowired
 	private TbGagNauseaMapper gagNauseaMapper;

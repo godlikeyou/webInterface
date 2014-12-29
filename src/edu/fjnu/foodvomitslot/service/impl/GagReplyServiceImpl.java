@@ -1,12 +1,15 @@
 package edu.fjnu.foodvomitslot.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.fjnu.foodvomitslot.dao.TbGagReplyMapper;
 import edu.fjnu.foodvomitslot.model.TbGagReply;
 import edu.fjnu.foodvomitslot.service.GagReplyServiceInte;
 import edu.fjnu.foodvomitslot.util.GlobalVariable;
-
+@Service("gagReplyService")
+@Transactional
 public class GagReplyServiceImpl implements GagReplyServiceInte {
 	@Autowired
 	private TbGagReplyMapper gagReplyMapper;
