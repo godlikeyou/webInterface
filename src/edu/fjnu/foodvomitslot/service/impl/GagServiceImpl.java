@@ -12,6 +12,7 @@ import com.google.common.collect.Maps;
 import edu.fjnu.foodvomitslot.dao.TbGagMapper;
 import edu.fjnu.foodvomitslot.model.TbGag;
 import edu.fjnu.foodvomitslot.service.GagServiceInte;
+import edu.fjnu.foodvomitslot.util.GlobalVariable;
 import edu.fjnu.foodvomitslot.util.Page;
 @Service("gagService")
 @Transactional
@@ -32,7 +33,7 @@ public class GagServiceImpl implements GagServiceInte {
 	}
 	@Override
 	public int insert(TbGag g) {
-		if( g == null)return -1;
+		if( g == null)return GlobalVariable.RET_FAILURE;
 		// TODO Auto-generated method stub
 		return gagMapper.insert(g);
 	}
