@@ -10,6 +10,9 @@ public interface TbCustomerMapper {
 
     int insert(TbCustomer record);
 
+    /*
+     * 用户注册
+     */
     int insertSelective(TbCustomer record);
 
     /*

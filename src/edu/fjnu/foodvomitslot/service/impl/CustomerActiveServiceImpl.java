@@ -3,6 +3,7 @@
  */
 package edu.fjnu.foodvomitslot.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,9 +18,10 @@ import edu.fjnu.foodvomitslot.service.CustomerActiveServiceInte;
 @Service("customerActiveService")
 @Transactional
 public class CustomerActiveServiceImpl implements CustomerActiveServiceInte {
-
+	
 	private TbCustomerActiveMapper customerActiveMapper;
 
+	@Autowired
 	public void setCustomerActiveMapper(
 			TbCustomerActiveMapper customerActiveMapper) {
 		this.customerActiveMapper = customerActiveMapper;
@@ -34,6 +36,15 @@ public class CustomerActiveServiceImpl implements CustomerActiveServiceInte {
 	public TbCustomerActive selectCustomerActiveByCid(Integer cid) {
 		// TODO Auto-generated method stub
 		return this.customerActiveMapper.selectCustomerActiveByCId(cid);
+	}
+
+	@Override
+	public boolean addCustomerActiveInfo(TbCustomerActive ca) {
+		// TODO Auto-generated method stub
+		if(this.customerActiveMapper.insertSelective(ca) == 1)
+			return true;
+		else
+			return false;
 	}
 
 }

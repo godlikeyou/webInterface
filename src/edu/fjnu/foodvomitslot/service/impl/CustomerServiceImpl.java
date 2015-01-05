@@ -60,5 +60,14 @@ public class CustomerServiceImpl implements CustomerServiceInte {
 		  map.put("name", name); 
 		  map.put("page", page);             //MAP的话加这一句就OK  
 		  return customerMapper.selectByNameLevelSubject(map);  
+	}
+
+	@Override
+	public boolean addCustomer(TbCustomer customer) {
+		// TODO Auto-generated method stub
+		if(this.customerMapper.insertSelective(customer) == 1)
+			return true;
+		else
+			return false;
 	}  
 }

@@ -23,4 +23,9 @@ public interface CustomerServiceInte {
 	 * 通过用户名获取用户信息
 	 */
 	public TbCustomer getCustomerInfoByName(String name);public List<TbCustomer> selectByNameLevelSubject(String name, Page page);
+	
+	/*
+	 * 注册用户
+	 */
+	public boolean addCustomer(TbCustomer customer);
 }

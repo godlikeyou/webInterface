@@ -1,8 +1,10 @@
 package edu.fjnu.foodvomitslot.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import edu.fjnu.foodvomitslot.model.TbCustomer;
+import edu.fjnu.foodvomitslot.model.TbCustomerActive;
+import edu.fjnu.foodvomitslot.service.CustomerActiveServiceInte;
 import edu.fjnu.foodvomitslot.service.CustomerFansServiceInte;
 import edu.fjnu.foodvomitslot.service.CustomerServiceInte;
 import edu.fjnu.foodvomitslot.util.Page;
@@ -28,6 +32,7 @@ public class CustomerControl {
 
 	CustomerServiceInte customerService;
 	CustomerFansServiceInte customerfansService;
+	CustomerActiveServiceInte customerActiveService;
 
 	@Autowired
 	public void setCustomerService(CustomerServiceInte customerService) {
@@ -38,6 +43,12 @@ public class CustomerControl {
 	public void setCustomerfansService(
 			CustomerFansServiceInte customerfansService) {
 		this.customerfansService = customerfansService;
+	}
+
+	@Autowired
+	public void setCustomerActiveService(
+			CustomerActiveServiceInte customerActiveService) {
+		this.customerActiveService = customerActiveService;
 	}
 
 	@RequestMapping(value = "/blog/{blogId}", method = RequestMethod.PUT)
@@ -61,10 +72,6 @@ public class CustomerControl {
 			HttpServletResponse response) {
 		String customerName = request.getParameter("customer");
 		String passwd = request.getParameter("passwd");
-		// boolean flag = this.customerService.customerLogin(customer,passwd);
-		// 组装json，返回
-		String result = null;
-		JSONObject jo = new JSONObject();
 		Map<String, String> map1 = new HashMap<String, String>();
 		JSONArray ja1 = new JSONArray();
 		TbCustomer customer = this.customerService
@@ -79,7 +86,18 @@ public class CustomerControl {
 				map1.put("result", "001");
 				int fansCount = this.customerfansService
 						.getCustomerFansCount(customer.getcId());
+				int postCount = this.customerActiveService
+						.selectCustomerActiveByCid(customer.getcId())
+						.getCaPost();
 				map1.put("fansCount", String.valueOf(fansCount));
+				map1.put("postCount", String.valueOf(postCount));
+				map1.put("collectionCount", String.valueOf(0));
+				map1.put("focusCount", String.valueOf(0));
+				map1.put("customerName", customerName);
+				map1.put("customerPic", customer.getcPurl());
+				map1.put("customerNickname", customer.getcNickname());
+				map1.put("customerPhone",customer.getcPhone());
+				map1.put("customerEmail", customer.getcEmail());
 			}
 		}
 		ja1 = JSONArray.fromObject(map1);
@@ -122,16 +140,80 @@ public class CustomerControl {
 		return jo;
 	}
 
-	//分页查询测试
+	// 分页查询测试
 	@RequestMapping(value = "/blog", method = RequestMethod.GET)
 	public String list() {
-		int pageNo = 2; //当前查询的页数
-		int pageSize = 2; //一页几条数据
+		int pageNo = 2; // 当前查询的页数
+		int pageSize = 2; // 一页几条数据
 		Page page = Page.newBuilder(pageNo, pageSize, "blog");
 		page.getParams().put("name", "李白"); // 这里再保存查询条件
 		List<TbCustomer> listc = this.customerService.selectByNameLevelSubject(
 				"李白", page); // 这里将page返回前台
-		System.out.println("dfsdf=="+listc.size());
+		System.out.println("dfsdf==" + listc.size());
 		return listc.toString();
+	}
+
+	@RequestMapping(value = "/1.0/customerRegister", method = RequestMethod.POST)
+	@ResponseBody
+	public JSONArray customerRegister(HttpServletRequest request,
+			HttpServletResponse response) {
+		System.out.println("xxxx");
+		String customerName = request.getParameter("customer");
+		String customerPasswd = request.getParameter("passwd");
+		Map<String, String> map = new HashMap<String, String>();
+		JSONArray ja = new JSONArray();
+		if (customerName == null || "".equals("customerName")
+				|| customerPasswd == null || "".equals("customerPasswd")) {
+			map.put("result", "004");
+			ja = JSONArray.fromObject(map);
+			return ja;
+		} else {
+			TbCustomer customer = this.customerService
+					.getCustomerInfoByName(customerName);
+			if (customer != null) {
+				map.put("result", "003");
+				ja = JSONArray.fromObject(map);
+				return ja;
+			} else {
+				Random r = new Random();
+				TbCustomer c = new TbCustomer();
+				int cid = r.nextInt(10000000);
+				c.setcId(cid);
+				c.setcName(customerName);
+				c.setcPassword(customerPasswd);
+				c.setCtTypeid(1);
+				if (this.customerService.addCustomer(c)) {
+					TbCustomerActive ca = new TbCustomerActive();
+					ca.setCaId(r.nextInt(10000000));
+					Date now = new Date();
+					ca.setCaJointime(now);
+					ca.setCaLastlogintime(now);
+					ca.setCaPost(0);
+					ca.setcId(cid);
+					if (this.customerActiveService.addCustomerActiveInfo(ca)) {
+						map.put("result", "001");
+						map.put("fansCount", "0");
+						map.put("postCount", "0");
+						map.put("collectionCount", "0");
+						map.put("focusCount", "0");
+						map.put("customerName", customerName);
+						map.put("customerPic", "");
+						map.put("customerNickname", "");
+						map.put("customerPhone","");
+						map.put("customerEmail", "");
+						ja = JSONArray.fromObject(map);
+						return ja;
+					} else {
+						map.put("result", "002");
+						ja = JSONArray.fromObject(map);
+						return ja;
+					}
+				} else {
+					map.put("result", "002");
+					ja = JSONArray.fromObject(map);
+					return ja;
+				}
+			}
+		}
 	}
 }

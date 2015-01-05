@@ -16,7 +16,6 @@ import java.util.Map;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import org.apache.catalina.connector.Response;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
@@ -28,7 +27,7 @@ public class test {
 		// TODO Auto-generated method stub		
 		JSONObject jo = new JSONObject();
 		Map<String, String> map1 = new HashMap<String, String>();
-        map1.put("customerName", "Àî°×");
+        map1.put("customerName", "ï¿½ï¿½ï¿½");
         map1.put("customerPasswd", "123456");
         JSONArray ja1 = JSONArray.fromObject(map1);
         jo.put("customer", ja1);
@@ -43,7 +42,7 @@ public class test {
 			doPut("http://localhost/ssm_demo/blog/32",m);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			System.out.println("³öÏÖÒì³£");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ì³£");
 		}*/
 		
 	}
@@ -54,24 +53,24 @@ public class test {
 		String result = "";
 		try {
 			URL realUrl = new URL(url);
-			// ´ò¿ªºÍURLÖ®¼äµÄÁ¬½Ó
+			// ï¿½ò¿ªºï¿½URLÖ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			URLConnection conn = realUrl.openConnection();
-			// ÉèÖÃÍ¨ÓÃµÄÇëÇóÊôÐÔ
+			// ï¿½ï¿½ï¿½ï¿½Í¨ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			conn.setRequestProperty("accept", "*/*");
 			conn.setRequestProperty("connection", "Keep-Alive");
 			conn.setRequestProperty("user-agent",
 					"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-			// ·¢ËÍPOSTÇëÇó±ØÐëÉèÖÃÈçÏÂÁ½ÐÐ
+			// ï¿½ï¿½ï¿½ï¿½POSTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			conn.setDoOutput(true);
 			conn.setDoInput(true);
-			// »ñÈ¡URLConnection¶ÔÏó¶ÔÓ¦µÄÊä³öÁ÷
+			// ï¿½ï¿½È¡URLConnectionï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			out = new PrintWriter(conn.getOutputStream());
-			// ·¢ËÍÇëÇó²ÎÊý
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			out.print(param);
-			// flushÊä³öÁ÷µÄ»º³å
+			// flushï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½
 			out.flush();
 			
-			// ¶¨ÒåBufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦
+			// ï¿½ï¿½ï¿½ï¿½BufferedReaderï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡URLï¿½ï¿½ï¿½ï¿½Ó¦
 			in = new BufferedReader(
 					new InputStreamReader(conn.getInputStream()));
 			String line;
@@ -81,10 +80,10 @@ public class test {
 				result += line;
 			}
 		} catch (Exception e) {
-			System.out.println("·¢ËÍ POST ÇëÇó³öÏÖÒì³££¡" + e);
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ POST ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½" + e);
 			e.printStackTrace();
 		}
-		// Ê¹ÓÃfinally¿éÀ´¹Ø±ÕÊä³öÁ÷¡¢ÊäÈëÁ÷
+		// Ê¹ï¿½ï¿½finallyï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		finally {
 			try {
 				if (out != null) {
@@ -106,22 +105,22 @@ public class test {
 		try {
 			String urlNameString = url + "?" + param;
 			URL realUrl = new URL(urlNameString);
-			// ´ò¿ªºÍURLÖ®¼äµÄÁ¬½Ó
+			// ï¿½ò¿ªºï¿½URLÖ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			URLConnection connection = realUrl.openConnection();
-			// ÉèÖÃÍ¨ÓÃµÄÇëÇóÊôÐÔ
+			// ï¿½ï¿½ï¿½ï¿½Í¨ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			connection.setRequestProperty("accept", "*/*");
 			connection.setRequestProperty("connection", "Keep-Alive");
 			connection.setRequestProperty("user-agent",
 					"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-			// ½¨Á¢Êµ¼ÊµÄÁ¬½Ó
+			// ï¿½ï¿½ï¿½ï¿½Êµï¿½Êµï¿½ï¿½ï¿½ï¿½ï¿½
 			connection.connect();
-			// »ñÈ¡ËùÓÐÏìÓ¦Í·×Ö¶Î
+			// ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦Í·ï¿½Ö¶ï¿½
 			Map<String, List<String>> map = connection.getHeaderFields();
-			// ±éÀúËùÓÐµÄÏìÓ¦Í·×Ö¶Î
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½ï¿½Ó¦Í·ï¿½Ö¶ï¿½
 			for (String key : map.keySet()) {
 				System.out.println(key + "--->" + map.get(key));
 			}
-			// ¶¨Òå BufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦
+			// ï¿½ï¿½ï¿½ï¿½ BufferedReaderï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡URLï¿½ï¿½ï¿½ï¿½Ó¦
 			in = new BufferedReader(new InputStreamReader(
 					connection.getInputStream()));
 			String line;
@@ -129,10 +128,10 @@ public class test {
 				result += line;
 			}
 		} catch (Exception e) {
-			System.out.println("·¢ËÍGETÇëÇó³öÏÖÒì³££¡" + e);
+			System.out.println("ï¿½ï¿½ï¿½ï¿½GETï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½" + e);
 			e.printStackTrace();
 		}
-		// Ê¹ÓÃfinally¿éÀ´¹Ø±ÕÊäÈëÁ÷
+		// Ê¹ï¿½ï¿½finallyï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		finally {
 			try {
 				if (in != null) {
@@ -163,13 +162,13 @@ public class test {
 	}
 
 	/**
-	 * PUT»ù´¡ÇëÇó
+	 * PUTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 *
 	 * @param url
-	 *            ÇëÇóµØÖ·
+	 *            ï¿½ï¿½ï¿½ï¿½ï¿½Ö·
 	 * @param values
-	 *            Ìá½»²ÎÊý
-	 * @return byte[] ÇëÇó³É¹¦ºóµÄ½á¹û
+	 *            ï¿½á½»ï¿½ï¿½ï¿½ï¿½
+	 * @return byte[] ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½Ä½ï¿½ï¿½
 	 */
 	public static void doPut(String urlStr, Map<String, Object> paramMap)
 			throws Exception {
@@ -197,14 +196,14 @@ public class test {
 	
 	private static void doPost(String url,String[] param){
 		try {
-		    /** post·½Ê½ */
+		    /** postï¿½ï¿½Ê½ */
 		    HttpClient client = new HttpClient();
 		    PostMethod postMethod = new PostMethod(url);
-		    // ²ÎÊýÉèÖÃ
+		    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		    postMethod.setParameter(param[0],param[1]);
-		    // Ö´ÐÐpostMethod
+		    // Ö´ï¿½ï¿½postMethod
 		    client.getParams().setParameter(HttpMethodParams.HTTP_CONTENT_CHARSET, "utf-8");
-		    // Ö´ÐÐ²¢·µ»Ø×´Ì¬²ý
+		    // Ö´ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½
 		    int status = client.executeMethod(postMethod);
 		    System.out.println("status==="+status);
 		    byte[] getUrl = postMethod.getResponseBody();
