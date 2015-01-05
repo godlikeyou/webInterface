@@ -33,7 +33,6 @@ public class GagControl {
 		System.out.println("cu"+currentPage);
 		int pageSize = GlobalVariable.GAG_PAGE_SIZE;
 		Page page = Page.newBuilder(Integer.valueOf(currentPage), pageSize, "allarticle");
-		page.getParams().put("name", "李白");
 		List<TbGag> listGap = gagServiceInte.selectAllGag(page);
 		for(int i = 0;i < listGap.size();i ++){
 			System.out.println("xx"+listGap.get(i).getgContent());
@@ -66,7 +65,7 @@ public class GagControl {
 		gag.setgTime(t);
 		gag.setGtId(1);//theme
 		gag.setsId(1);//school
-		gag.setcId(1);//custoemr
+		gag.setcId(1);//customer
 		if(gagServiceInte.insert(gag) > 0)
 			return "success";
 		return "failure";
