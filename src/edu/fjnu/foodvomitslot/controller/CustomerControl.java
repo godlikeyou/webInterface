@@ -1,5 +1,6 @@
 package edu.fjnu.foodvomitslot.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -84,23 +85,37 @@ public class CustomerControl {
 				map1.put("result", "002");
 			} else {
 				map1.put("result", "001");
-				int fansCount = this.customerfansService
-						.getCustomerFansCount(customer.getcId());
-				int postCount = this.customerActiveService
-						.selectCustomerActiveByCid(customer.getcId())
-						.getCaPost();
-				map1.put("fansCount", String.valueOf(fansCount));
-				map1.put("postCount", String.valueOf(postCount));
-				map1.put("collectionCount", String.valueOf(0));
-				map1.put("focusCount", String.valueOf(0));
+				TbCustomerActive ca = this.customerActiveService.selectCustomerActiveByCid(customer.getcId());
+				map1.put("fansCount", String.valueOf(ca.getCaFans()));
+				map1.put("postCount", String.valueOf(ca.getCaPost()));
+				map1.put("collectionCount", String.valueOf(ca.getCaCollection()));
+				map1.put("focusCount", String.valueOf(ca.getCaFocus()));
 				map1.put("customerName", customerName);
-				map1.put("customerPic", customer.getcPurl());
-				map1.put("customerNickname", customer.getcNickname());
-				map1.put("customerPhone",customer.getcPhone());
-				map1.put("customerEmail", customer.getcEmail());
+				if(customer.getcPurl() == null)
+					map1.put("customerPic", "");
+				else
+					map1.put("customerPic", customer.getcPurl());
+				if(customer.getcNickname() == null)
+					map1.put("customerNickname", "");
+				else
+					map1.put("customerNickname", customer.getcNickname());
+				map1.put("customerId", String.valueOf(customer.getcId()));
+				if(customer.getcPhone() == null)
+					map1.put("customerPhone","");
+				else
+					map1.put("customerPhone",customer.getcPhone());
+				if(customer.getcEmail() == null)
+					map1.put("customerEmail","");
+				else
+					map1.put("customerEmail",customer.getcEmail());
+				if(customer.getcSignature() == null)
+					map1.put("customerSignature","");
+				else
+					map1.put("customerSignature",customer.getcSignature());			
 			}
 		}
 		ja1 = JSONArray.fromObject(map1);
+		System.out.println("xx+"+ja1);
 		return ja1;
 	}
 

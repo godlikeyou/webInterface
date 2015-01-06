@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="edu.fjnu.foodvomitslot.dao.TbCustomerActiveMapper" >
-  <resultMap id="BaseResultMap" type="edu.fjnu.foodvomitslot.model.TbCustomerActive" >
+    <resultMap id="BaseResultMap" type="edu.fjnu.foodvomitslot.model.TbCustomerActive" >
     <id column="ca_id" property="caId" jdbcType="INTEGER" />
     <result column="c_id" property="cId" jdbcType="INTEGER" />
     <result column="ca_jointime" property="caJointime" jdbcType="TIMESTAMP" />
     <result column="ca_lastlogintime" property="caLastlogintime" jdbcType="TIMESTAMP" />
     <result column="ca_recyle" property="caRecyle" jdbcType="CHAR" />
     <result column="ca_post" property="caPost" jdbcType="INTEGER" />
+    <result column="ca_fans" property="caFans" jdbcType="INTEGER" />
+    <result column="ca_focus" property="caFocus" jdbcType="INTEGER" />
+    <result column="ca_collection" property="caCollection" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="SelectResultMap" type="edu.fjnu.foodvomitslot.model.TbCustomerActive" >
+    <id column="ca_id" property="caId" jdbcType="INTEGER" />
+    <result column="c_id" property="cId" jdbcType="INTEGER" />
+    <result column="ca_post" property="caPost" jdbcType="INTEGER" />
+    <result column="ca_fans" property="caFans" jdbcType="INTEGER" />
+    <result column="ca_focus" property="caFocus" jdbcType="INTEGER" />
+    <result column="ca_collection" property="caCollection" jdbcType="INTEGER" />
+    <association property="customer" javaType="edu.fjnu.foodvomitslot.model.TbCustomer">
+    	<id column="c_id" property="cId" jdbcType="INTEGER" />
+	    <result column="c_name" property="cName" jdbcType="VARCHAR" />
+	    <result column="c_nickname" property="cNickname" jdbcType="VARCHAR" />
+	    <result column="c_purl" property="cPurl" jdbcType="VARCHAR" />
+	    <result column="c_signature" property="cSignature" jdbcType="VARCHAR" />
+	    <result column="c_phone" property="cPhone" jdbcType="VARCHAR" />
+	    <result column="c_email" property="cEmail" jdbcType="VARCHAR" />
+    </association>
   </resultMap>
   <sql id="Base_Column_List" >
-    ca_id, c_id, ca_jointime, ca_lastlogintime, ca_recyle, ca_post
+    ca_id, c_id, ca_jointime, ca_lastlogintime, ca_recyle, ca_post,ca_fans,ca_focus,ca_collection
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -24,10 +44,11 @@
   </delete>
   <insert id="insert" parameterType="edu.fjnu.foodvomitslot.model.TbCustomerActive" >
     insert into tb_customer_active (ca_id, c_id, ca_jointime, 
-      ca_lastlogintime, ca_recyle, ca_post
+      ca_lastlogintime, ca_recyle, ca_post,ca_fans,ca_focus,ca_collection
       )
     values (#{caId,jdbcType=INTEGER}, #{cId,jdbcType=INTEGER}, #{caJointime,jdbcType=TIMESTAMP}, 
-      #{caLastlogintime,jdbcType=TIMESTAMP}, #{caRecyle,jdbcType=CHAR}, #{caPost,jdbcType=INTEGER}
+      #{caLastlogintime,jdbcType=TIMESTAMP}, #{caRecyle,jdbcType=CHAR}, #{caPost,jdbcType=INTEGER},
+      #{caFans,jdbcType=INTEGER},#{caFocus,jdbcType=INTEGER},#{caCollection,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="edu.fjnu.foodvomitslot.model.TbCustomerActive" >
@@ -51,6 +72,15 @@
       <if test="caPost != null" >
         ca_post,
       </if>
+      <if test="caFans != null" >
+        ca_Fans,
+      </if>
+      <if test="caFocus != null" >
+        ca_Focus,
+      </if>
+      <if test="caCollection != null" >
+        ca_collection,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="caId != null" >
@@ -70,6 +100,15 @@
       </if>
       <if test="caPost != null" >
         #{caPost,jdbcType=INTEGER},
+      </if>
+      <if test="caFans != null" >
+        #{caFans,jdbcType=INTEGER},
+      </if>
+      <if test="caFocus != null" >
+        #{caFocus,jdbcType=INTEGER},
+      </if>
+      <if test="caCollection != null" >
+        #{caCollection,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -91,6 +130,15 @@
       <if test="caPost != null" >
         ca_post = #{caPost,jdbcType=INTEGER},
       </if>
+      <if test="caFans != null" >
+        ca_fans = #{caFans,jdbcType=INTEGER},
+      </if>
+      <if test="caFocus != null" >
+        ca_focus = #{caFocus,jdbcType=INTEGER},
+      </if>
+      <if test="caCollection != null" >
+        ca_collection = #{caCollection,jdbcType=INTEGER},
+      </if>
     </set>
     where ca_id = #{caId,jdbcType=INTEGER}
   </update>
@@ -100,14 +148,15 @@
       ca_jointime = #{caJointime,jdbcType=TIMESTAMP},
       ca_lastlogintime = #{caLastlogintime,jdbcType=TIMESTAMP},
       ca_recyle = #{caRecyle,jdbcType=CHAR},
-      ca_post = #{caPost,jdbcType=INTEGER}
+      ca_post = #{caPost,jdbcType=INTEGER},
+      ca_fans = #{caFans,jdbcType=INTEGER},
+      ca_focus = #{caFocus,jdbcType=INTEGER},
+      ca_collection = #{caCollection,jdbcType=INTEGER}
     where ca_id = #{caId,jdbcType=INTEGER}
   </update>
   <!-- 通过用户ID获取用户活跃信息 -->
-  <select id="selectCustomerActiveByCId" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select 
-    <include refid="Base_Column_List" />
-    from tb_customer_active
-    where c_id = #{cId,jdbcType=INTEGER}
+  <select id="selectCustomerActiveByCId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select <include refid="Base_Column_List" />  from tb_customer_active
+    where c_id = #{cId,jdbcType=INTEGER}   
   </select>
 </mapper>
