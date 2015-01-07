@@ -27,4 +27,9 @@ public interface TbCustomerMapper {
     TbCustomer selectCustomerByName(String name);
     
     public List<TbCustomer> selectByNameLevelSubject(Map map);
+    
+    /*
+     * 更新用户昵称
+     */
+    int updateNicknameByCid(Map map);
 }

@@ -3,6 +3,7 @@ package edu.fjnu.foodvomitslot.service;
 import edu.fjnu.foodvomitslot.model.TbCustomer;
 
 import java.util.List;
+import java.util.Map;
 
 import edu.fjnu.foodvomitslot.model.TbGag;
 import edu.fjnu.foodvomitslot.util.Page;
@@ -28,4 +29,8 @@ public interface CustomerServiceInte {
 	 * 注册用户
 	 */
 	public boolean addCustomer(TbCustomer customer);
+	/*
+	 * 更新用户
+	 */
+	public boolean updateCustomerNickname(Map map);
 }

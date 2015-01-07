@@ -69,5 +69,14 @@ public class CustomerServiceImpl implements CustomerServiceInte {
 			return true;
 		else
 			return false;
+	}
+
+	@Override
+	public boolean updateCustomerNickname(Map map) {
+		// TODO Auto-generated method stub
+		if(this.customerMapper.updateNicknameByCid(map)==1)
+			return true;
+		else
+			return false;
 	}  
 }

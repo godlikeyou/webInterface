@@ -231,4 +231,21 @@ public class CustomerControl {
 			}
 		}
 	}
+	/*
+	 * 修改用户昵称
+	 */
+	@RequestMapping(value = "/1.0/update/nickname", method = RequestMethod.POST)
+	@ResponseBody
+	public int updateNickname(HttpServletRequest request,
+			HttpServletResponse response){
+		String nickname = request.getParameter("nickname");
+		Integer cid = Integer.valueOf(request.getParameter("cid"));
+		Map map = new HashMap();
+		map.put("cNickname", nickname);
+		map.put("cId", cid);
+		if(this.customerService.updateCustomerNickname(map))
+			return 0;
+		else
+			return 1;
+	}
 }
