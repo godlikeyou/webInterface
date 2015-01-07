@@ -26,6 +26,7 @@ public class GagCollectionControl {
 	public String addGagCollection(HttpServletRequest request,HttpServletResponse response){
 		String userId = request.getParameter("uid");//must login user,user name is unique
 		String gagId = request.getParameter("gid");
+		System.out.println("uid"+userId+"gid"+gagId);
 		Date time = new Date(new Date().getTime());
 		Random r = new Random();
 		TbGagCollection gc = new TbGagCollection();
