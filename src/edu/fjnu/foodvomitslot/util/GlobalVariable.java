@@ -1,7 +1,7 @@
 package edu.fjnu.foodvomitslot.util;
 
 public class GlobalVariable {
-	public static final int GAG_PAGE_SIZE = 2;
+	public static final int GAG_PAGE_SIZE = 3;
 	public static final int RET_FAILURE = -1;
 	public static final int RET_SUCCESS = 0;
 	
