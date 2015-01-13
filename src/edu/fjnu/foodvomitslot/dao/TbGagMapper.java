@@ -21,5 +21,9 @@ public interface TbGagMapper {
     int updateByPrimaryKey(TbGag record);
     
     List<TbGag> selectAllGag(Map map);
+    List<TbGag> selectAllGagPureText(Map map);
     int countGag();
+    int countPureText();
+    int countHavePic();
+    List<TbGag> selectAllGagHavePic(Map map);
 }

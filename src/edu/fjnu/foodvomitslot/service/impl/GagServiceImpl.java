@@ -42,5 +42,29 @@ public class GagServiceImpl implements GagServiceInte {
 		// TODO Auto-generated method stub
 		return gagMapper.countGag();
 	}
+	@Override
+	public int countPureText() {
+		// TODO Auto-generated method stub
+		return gagMapper.countPureText();
+	}
+	@Override
+	public List<TbGag> selectAllGagPureText(Page page) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = Maps.newHashMap();
+		map.put("page", page);  
+		return gagMapper.selectAllGagPureText(map);
+	}
+	@Override
+	public int countHavePic() {
+		// TODO Auto-generated method stub
+		return gagMapper.countHavePic();
+	}
+	@Override
+	public List<TbGag> selectAllGagHavePic(Page page) {
+		// TODO Auto-generated method stub
+		Map<String, Object> map = Maps.newHashMap();
+		map.put("page", page);  
+		return gagMapper.selectAllGagHavePic(map);
+	}
 	
 }

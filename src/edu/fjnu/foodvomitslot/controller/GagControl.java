@@ -42,12 +42,57 @@ public class GagControl {
 		return jo;
 	}
 	
+	@RequestMapping(value="/allarticle/puretext/{currentPage}",method=RequestMethod.GET)
+	@ResponseBody
+	public JSONArray showAllArticlePureText(@PathVariable String currentPage,HttpServletRequest request,HttpServletResponse response){
+		System.out.println("cu"+currentPage);
+		int pageSize = GlobalVariable.GAG_PAGE_SIZE;
+		Page page = Page.newBuilder(Integer.valueOf(currentPage), pageSize, "allarticle");
+		List<TbGag> listGap = gagServiceInte.selectAllGagPureText(page);
+		for(int i = 0;i < listGap.size();i ++){
+			System.out.println("xx"+listGap.get(i).getgContent());
+		}
+		JSONArray jo = JSONArray.fromObject(listGap);
+		System.out.println("xx+"+jo);
+		return jo;
+	}
+	@RequestMapping(value="/allarticle/havepic/{currentPage}",method=RequestMethod.GET)
+	@ResponseBody
+	public JSONArray showAllArticleHavePic(@PathVariable String currentPage,HttpServletRequest request,HttpServletResponse response){
+		System.out.println("cu"+currentPage);
+		int pageSize = GlobalVariable.GAG_PAGE_SIZE;
+		Page page = Page.newBuilder(Integer.valueOf(currentPage), pageSize, "allarticle");
+		List<TbGag> listGap = gagServiceInte.selectAllGagHavePic(page);
+		for(int i = 0;i < listGap.size();i ++){
+			System.out.println("xx"+listGap.get(i).getgContent());
+		}
+		JSONArray jo = JSONArray.fromObject(listGap);
+		System.out.println("xx+"+jo);
+		return jo;
+	}
 	@RequestMapping(value="/gagsize",method=RequestMethod.GET)
 	@ResponseBody
 	public int countGag(HttpServletRequest request,HttpServletResponse response){
 		int size = gagServiceInte.countGag();
 		return size;
 	}
+	
+	@RequestMapping(value="/gagsize/puretext",method=RequestMethod.GET)
+	@ResponseBody
+	public int countGagPureText(HttpServletRequest request,HttpServletResponse response){
+		int size = gagServiceInte.countPureText();
+		System.out.println("size"+size);
+		return size;
+	}
+	
+	@RequestMapping(value="/gagsize/havepic",method=RequestMethod.GET)
+	@ResponseBody
+	public int countGagHavePic(HttpServletRequest request,HttpServletResponse response){
+		int size = gagServiceInte.countHavePic();
+		System.out.println("size"+size);
+		return size;
+	}
+	
 	@RequestMapping(value="/post",method=RequestMethod.POST)
 	@ResponseBody
 	public String addGag(HttpServletRequest request,HttpServletResponse response){
