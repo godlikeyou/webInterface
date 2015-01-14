@@ -12,8 +12,16 @@ public class TbGagReply {
     private Date grTime;
 
     private Integer cId;
+    private TbCustomer customer;
+    public TbCustomer getCustomer() {
+		return customer;
+	}
 
-    public Integer getGrId() {
+	public void setCustomer(TbCustomer customer) {
+		this.customer = customer;
+	}
+
+	public Integer getGrId() {
         return grId;
     }
 

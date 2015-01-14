@@ -7,6 +7,13 @@
     <result column="gr_content" property="grContent" jdbcType="VARCHAR" />
     <result column="gr_time" property="grTime" jdbcType="TIMESTAMP" />
     <result column="c_id" property="cId" jdbcType="INTEGER" />
+     <association property="customer" javaType="edu.fjnu.foodvomitslot.model.TbCustomer">
+    	<id column="c_id" property="cId" jdbcType="INTEGER" />
+	    <result column="c_name" property="cName" jdbcType="VARCHAR" />
+	    <result column="c_nickname" property="cNickname" jdbcType="VARCHAR" />
+	    <result column="c_purl" property="cPurl" jdbcType="VARCHAR" />
+	    <result column="c_signature" property="cSignature" jdbcType="VARCHAR" />
+    </association>
   </resultMap>
   <sql id="Base_Column_List" >
     gr_id, g_id, gr_content, gr_time, c_id
@@ -27,6 +34,12 @@
     values (#{grId,jdbcType=INTEGER}, #{gId,jdbcType=INTEGER}, #{grContent,jdbcType=VARCHAR}, 
       #{grTime,jdbcType=TIMESTAMP}, #{cId,jdbcType=INTEGER})
   </insert>
+  
+  <select id="findRecByGId" resultMap="BaseResultMap"  parameterType="java.util.Map">
+  	select c.c_id,c.c_name,c.c_nickname,c.c_purl,c.c_signature,g.gr_id,g.gr_content,g.gr_time from tb_gag_reply g 
+    left outer join tb_customer c on c.c_id=g.c_id where g.g_id=#{gid} order by g.gr_time desc
+  </select>
+  
   <insert id="insertSelective" parameterType="edu.fjnu.foodvomitslot.model.TbGagReply" >
     insert into tb_gag_reply
     <trim prefix="(" suffix=")" suffixOverrides="," >
