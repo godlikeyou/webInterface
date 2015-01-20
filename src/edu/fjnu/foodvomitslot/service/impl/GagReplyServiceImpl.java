@@ -65,4 +65,10 @@ public class GagReplyServiceImpl implements GagReplyServiceInte {
 		return gagReplyMapper.findRecByGId(map);
 	}
 
+	@Override
+	public int recSize(Integer gid) {
+		// TODO Auto-generated method stub
+		return gagReplyMapper.recSize(gid);
+	}
+
 }

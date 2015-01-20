@@ -20,4 +20,5 @@ public interface TbGagReplyMapper {
     int updateByPrimaryKey(TbGagReply record);
     
     List<TbGagReply> findRecByGId(Map map);
+    int recSize(Integer gid);
 }

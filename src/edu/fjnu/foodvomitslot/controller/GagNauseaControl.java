@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import edu.fjnu.foodvomitslot.model.TbGag;
 import edu.fjnu.foodvomitslot.model.TbGagNausea;
 import edu.fjnu.foodvomitslot.service.GagNauseaServiceInte;
+import edu.fjnu.foodvomitslot.service.GagServiceInte;
 import edu.fjnu.foodvomitslot.util.GlobalVariable;
 
 @Controller
@@ -21,7 +23,8 @@ import edu.fjnu.foodvomitslot.util.GlobalVariable;
 public class GagNauseaControl {
 	@Autowired
 	private GagNauseaServiceInte gagNauseaServiceInte;
-	
+	@Autowired 
+	private GagServiceInte gagServiceInte;
 	/**
 	 * @description 增加恶心或者点赞，即点击向下手指，一个用户要么给恶心要么给赞，不能两个都给
 	 * @param request
@@ -45,8 +48,12 @@ public class GagNauseaControl {
 		else
 			gn.setGnStatus(GlobalVariable.GAG_NAUSEA);
 		gn.setGnTime(time);
-		if( gagNauseaServiceInte.insert(gn) > 0)
+		if( gagNauseaServiceInte.insert(gn) > 0){
+			TbGag gag = gagServiceInte.selectByPrimaryKey(Integer.valueOf(gid));
+			gag.setGtGoodcount(gag.getGtGoodcount() + 1);
+			this.gagServiceInte.updateByPrimaryKeySelective(gag);
 			return "success";
+		}
 		return "failure";
 	}
 	

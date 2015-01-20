@@ -40,6 +40,10 @@
     left outer join tb_customer c on c.c_id=g.c_id where g.g_id=#{gid} order by g.gr_time desc
   </select>
   
+  <select id="recSize"  resultType="int" parameterType="java.lang.Integer">
+  	select count(*) from tb_gag_reply where g_id=#{0}
+  </select>
+  
   <insert id="insertSelective" parameterType="edu.fjnu.foodvomitslot.model.TbGagReply" >
     insert into tb_gag_reply
     <trim prefix="(" suffix=")" suffixOverrides="," >

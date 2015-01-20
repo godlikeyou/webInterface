@@ -14,4 +14,6 @@ public interface GagServiceInte {
 	public int countPureText();
 	public int countHavePic();
 	public List<TbGag> selectAllGagHavePic(Page page);
+	public int updateByPrimaryKeySelective(TbGag record);
+	public TbGag selectByPrimaryKey(Integer gId);
 }

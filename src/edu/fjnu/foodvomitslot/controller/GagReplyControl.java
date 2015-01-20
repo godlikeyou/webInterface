@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import edu.fjnu.foodvomitslot.model.TbGag;
 import edu.fjnu.foodvomitslot.model.TbGagReply;
 import edu.fjnu.foodvomitslot.service.GagReplyServiceInte;
+import edu.fjnu.foodvomitslot.service.GagServiceInte;
 import edu.fjnu.foodvomitslot.util.GlobalVariable;
 import edu.fjnu.foodvomitslot.util.Page;
 
@@ -27,7 +28,8 @@ import edu.fjnu.foodvomitslot.util.Page;
 public class GagReplyControl {
 	@Autowired
 	private GagReplyServiceInte gagReplyServiceInte;
-	
+	@Autowired
+	private GagServiceInte gagServiceInte;;
 	@RequestMapping(value="/addGagReply",method=RequestMethod.POST)
 	@ResponseBody
 	public String addGagReply(HttpServletRequest request,HttpServletResponse response){
@@ -43,6 +45,9 @@ public class GagReplyControl {
 		gr.setcId(Integer.valueOf(uid));
 		gr.setgId(Integer.valueOf(gid));
 		if( gagReplyServiceInte.insert(gr) > 0){
+			TbGag gag = gagServiceInte.selectByPrimaryKey(Integer.valueOf(gid));
+			gag.setGtReccount(gag.getGtReccount() + 1);
+			this.gagServiceInte.updateByPrimaryKeySelective(gag);
 			return "success";
 		}
 		return "failure";
@@ -58,5 +63,13 @@ public class GagReplyControl {
 		JSONArray jo = JSONArray.fromObject(list);
 		System.out.println("hh+"+jo);
 		return jo;
+	}
+	@RequestMapping(value="/rec/recsize/{gid}",method=RequestMethod.GET)
+	@ResponseBody
+	public int recSize(@PathVariable("gid")String gid,HttpServletRequest request,HttpServletResponse response){
+		System.out.println("sizexx11"+gid);
+		int size =  gagReplyServiceInte.recSize(Integer.valueOf(gid));
+		System.out.println("sizse"+size);
+		return size;
 	}
 }

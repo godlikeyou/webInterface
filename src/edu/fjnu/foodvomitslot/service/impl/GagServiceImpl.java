@@ -66,5 +66,15 @@ public class GagServiceImpl implements GagServiceInte {
 		map.put("page", page);  
 		return gagMapper.selectAllGagHavePic(map);
 	}
+	@Override
+	public int updateByPrimaryKeySelective(TbGag record) {
+		// TODO Auto-generated method stub
+		return gagMapper.updateByPrimaryKeySelective(record);
+	}
+	@Override
+	public TbGag selectByPrimaryKey(Integer gId) {
+		// TODO Auto-generated method stub
+		return gagMapper.selectByPrimaryKey(gId);
+	}
 	
 }
