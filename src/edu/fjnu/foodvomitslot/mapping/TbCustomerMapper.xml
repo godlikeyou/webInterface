@@ -150,6 +150,11 @@
     from tb_customer
     where c_name = #{name}
   </select>
+  <select id="selectAllUser" resultMap="BaseResultMap">
+  	select
+  	<include refid="Base_Column_List"/>
+  	from tb_customer
+  </select>
   <update id="updateNicknameByCid" parameterType="java.util.Map">
   	update tb_customer
     set c_nickname = #{cNickname,jdbcType=VARCHAR}

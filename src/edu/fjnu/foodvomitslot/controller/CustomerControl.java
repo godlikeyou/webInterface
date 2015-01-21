@@ -248,4 +248,11 @@ public class CustomerControl {
 		else
 			return 1;
 	}
+	@RequestMapping(value="/user/alluser",method=RequestMethod.GET)
+	@ResponseBody
+	public JSONArray selectAllUser(HttpServletRequest request,HttpServletResponse response){
+		List<TbCustomer> list = customerService.selectAllUser();
+		JSONArray ja = JSONArray.fromObject(list);
+		return ja;
+	}
 }

@@ -78,5 +78,11 @@ public class CustomerServiceImpl implements CustomerServiceInte {
 			return true;
 		else
 			return false;
+	}
+
+	@Override
+	public List<TbCustomer> selectAllUser() {
+		// TODO Auto-generated method stub
+		return customerMapper.selectAllUser();
 	}  
 }

@@ -33,4 +33,5 @@ public interface CustomerServiceInte {
 	 * 更新用户
 	 */
 	public boolean updateCustomerNickname(Map map);
+	public List<TbCustomer> selectAllUser();
 }
