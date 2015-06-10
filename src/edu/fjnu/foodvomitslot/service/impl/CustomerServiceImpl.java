@@ -28,7 +28,12 @@ public class CustomerServiceImpl implements CustomerServiceInte {
 	@Override
 	public boolean customerLogin(String cname, String passwd) {
 		// TODO Auto-generated method stub
-		TbCustomer c = customerMapper.selectCustomerByName(cname);
+		TbCustomer c = null;
+		try {
+			c = customerMapper.selectCustomerByName(cname);
+		} catch (NullPointerException e) {
+			e.printStackTrace();
+		}
 		if (c == null)
 			return false;
 		else {
@@ -51,21 +56,21 @@ public class CustomerServiceImpl implements CustomerServiceInte {
 		return this.customerMapper.selectCustomerByName(name);
 	}
 
-	public List<TbCustomer> selectByNameLevelSubject(String name, Page page) {  
-		  System.out.println("name==="+name);
-		  Map<String, Object> map = Maps.newHashMap();
-		  if (name != null && name.isEmpty()){  
-		    name = null;  
-		  }  
-		  map.put("name", name); 
-		  map.put("page", page);             //MAP的话加这一句就OK  
-		  return customerMapper.selectByNameLevelSubject(map);  
+	public List<TbCustomer> selectByNameLevelSubject(String name, Page page) {
+		System.out.println("name===" + name);
+		Map<String, Object> map = Maps.newHashMap();
+		if (name != null && name.isEmpty()) {
+			name = null;
+		}
+		map.put("name", name);
+		map.put("page", page); // MAP的话加这一句就OK
+		return customerMapper.selectByNameLevelSubject(map);
 	}
 
 	@Override
 	public boolean addCustomer(TbCustomer customer) {
 		// TODO Auto-generated method stub
-		if(this.customerMapper.insertSelective(customer) == 1)
+		if (this.customerMapper.insertSelective(customer) == 1)
 			return true;
 		else
 			return false;
@@ -74,7 +79,7 @@ public class CustomerServiceImpl implements CustomerServiceInte {
 	@Override
 	public boolean updateCustomerNickname(Map map) {
 		// TODO Auto-generated method stub
-		if(this.customerMapper.updateNicknameByCid(map)==1)
+		if (this.customerMapper.updateNicknameByCid(map) == 1)
 			return true;
 		else
 			return false;
@@ -84,5 +89,5 @@ public class CustomerServiceImpl implements CustomerServiceInte {
 	public List<TbCustomer> selectAllUser() {
 		// TODO Auto-generated method stub
 		return customerMapper.selectAllUser();
-	}  
+	}
 }
